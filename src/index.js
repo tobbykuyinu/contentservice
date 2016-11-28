@@ -6,7 +6,7 @@ exports.handler = (event, context, callback) => {
         body          = { 
           slug: postSlug, 
           type: resourceType,
-          hello: 'world'
+          hello: 'world everyone'
         };
     callback(null, {
         "statusCode": '200',
