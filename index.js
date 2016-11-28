@@ -1,7 +1,16 @@
-exports.handler = (event, context, callback) => {
-  console.log('value1 =', event.key1);
-  console.log('value2 =', event.key2);
-  console.log('value3 =', event.key3);
+'use strict';
 
-  callback(null, event.key1);  // Echo back the first key value
+exports.handler = (event, context, callback) => {
+    var postSlug      = event.pathParameters.postSlug,
+        resourceType  = event.pathParameters.postType,
+        body          = { 
+          slug: postSlug, 
+          type: resourceType,
+          hello: 'world'
+        };
+    callback(null, {
+        "statusCode": '200',
+        "headers": { 'Content-Type': 'application/json' },
+        "body": JSON.stringify(body)
+    });
 };
