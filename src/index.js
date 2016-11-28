@@ -1,11 +1,11 @@
 'use strict';
 
-let RouteHandler = require('./src/routes/route_handler');
+let RouteHandler = require('./routes/route_handler');
 
 exports.handler = (event, context, callback) => {
     try {
         let routeHandler = new RouteHandler(event, context);
-        let responseHandler = require('./src/routes/response_handler');
+        let responseHandler = require('./routes/response_handler');
 
         routeHandler.handle()
         .then(response => {
