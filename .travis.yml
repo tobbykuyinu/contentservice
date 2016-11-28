@@ -1,0 +1,24 @@
+language: node_js
+
+sudo: true
+
+branches:
+  only:
+    - master
+    - develop
+    - /\d+.\d+.\d+(?:rc\d+)?/
+    - release-candidate
+    - task/ih/INTCAR-5991-location-customer-address-google
+
+before_script:
+
+script:
+  - ./deploy/package.sh
+
+after_success:
+  - sudo pip install --upgrade pip
+  - sudo pip install awscli
+  - aws configure set AWS_ACCESS_KEY_ID $AWS_ACCESS_KEY_ID
+  - aws configure set AWS_SECRET_ACCESS_KEY $AWS_SECRET_ACCESS_KEY
+  - chmod +x ./deploy/travis.sh
+  - ./deploy/travis.sh
