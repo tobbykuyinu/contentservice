@@ -1,11 +1,11 @@
 {
   "resource": "/content/advice/{postSlug}",
-  "path": "/content/advice/my-great-post",
+  "path": "/content/advice/this-is-a-test",
   "httpMethod": "GET",
   "headers": null,
   "queryStringParameters": null,
   "pathParameters": {
-    "postSlug": "my-great-post",
+    "postSlug": "this-is-a-test",
     "postType": "advice"
   },
   "stageVariables": null,

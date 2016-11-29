@@ -2,3 +2,6 @@ event.json
 Gruntfile.js
 dist
 *.iml
+.idea/
+app.env
+app.local.env
