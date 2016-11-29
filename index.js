@@ -1,16 +1,18 @@
 'use strict';
 
+let RouteHandler = require('./src/routes/route_handler');
+
 exports.handler = (event, context, callback) => {
-    var postSlug      = event.pathParameters.postSlug,
-        resourceType  = event.pathParameters.postType,
-        body          = { 
-          slug: postSlug, 
-          type: resourceType,
-          hello: 'world'
-        };
-    callback(null, {
-        "statusCode": '200',
-        "headers": { 'Content-Type': 'application/json' },
-        "body": JSON.stringify(body)
-    });
+    try {
+        let routeHandler = new RouteHandler(event, context);
+        let responseHandler = require('./src/routes/response_handler');
+
+        routeHandler.handle()
+        .then(response => {
+            callback(null, responseHandler(response));
+        })
+        .catch((error) => callback(error));
+    } catch (e) {
+        callback(e);
+    }
 };
