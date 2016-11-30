@@ -1,7 +1,7 @@
 'use strict';
 
-let httpStatus = require('http-status');
-let error = require('../lib/errors');
+const httpStatus = require('http-status');
+const error = require('../lib/errors');
 
 class AdviceController {
 
@@ -9,9 +9,11 @@ class AdviceController {
      * Advice Controller constructor
      * @constructor
      * @param adviceService
+     * @param recommendationService
      */
-    constructor(adviceService) {
+    constructor(adviceService, recommendationService) {
         this.adviceService = adviceService;
+        this.recommendationService = recommendationService;
     }
 
     /**
@@ -22,10 +24,19 @@ class AdviceController {
      */
     getAdvice(event, context) {
         let slug = event.pathParameters.postSlug;
+        let country = event.queryStringParameters.country;
+        let language = event.queryStringParameters.language;
+        let advice;
+        let products;
 
         return this.adviceService.getAdviceBySlug(slug)
         .then(response => {
-            return { status: httpStatus.OK, body: response };
+            advice = response;
+            return this.recommendationService.getProductsFromAdvice(response, country, language);
+        })
+        .then(response => {
+            products = response;
+            return { status: httpStatus.OK, body: {advice, products} };
         })
         .catch(err => {
             let code;

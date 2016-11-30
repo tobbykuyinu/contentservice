@@ -1,6 +1,6 @@
 'use strict';
 
-let errors = require('../lib/errors');
+const errors = require('../lib/errors');
 
 class AdviceService {
 
@@ -22,6 +22,8 @@ class AdviceService {
     getAdviceBySlug(slug) {
         return this.contentProvider.getEntryBySlug(slug)
         .then(data => {
+            this.logger.info('Successfully fetched data for slug');
+
             if (data.length < 1) {
                 this.logger.info(`Empty result gotten for ${slug}`);
                 throw new errors.AdviceNotFound('No Advice found for slug provided');

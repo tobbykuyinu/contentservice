@@ -3,7 +3,10 @@
   "path": "/content/advice/this-is-a-test",
   "httpMethod": "GET",
   "headers": null,
-  "queryStringParameters": null,
+  "queryStringParameters": {
+    "country": "ae",
+    "language": "en"
+  },
   "pathParameters": {
     "postSlug": "this-is-a-test",
     "postType": "advice"

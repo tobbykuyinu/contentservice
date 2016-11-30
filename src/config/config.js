@@ -1,6 +1,6 @@
 'use strict';
 
-let appName = 'contentservice';
+const appName = 'contentservice';
 
 let config = {
     appName: appName,
@@ -11,6 +11,9 @@ let config = {
                 content_preview: process.env.CONTENTFUL_CONTENT_PREVIEW_API_KEY
             },
             space_id: process.env.CONTENTFUL_SPACE_ID
+        },
+        carmudi_api_search: {
+            url: process.env.API_SEARCH_URL
         },
         ga: {
             url: 'gaApiUrl',

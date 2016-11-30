@@ -1,10 +1,12 @@
 'use strict';
 
-let config = require('./config');
+const config = require('./config');
 let serviceLocator = require('../lib/service_locator');
 let AdviceController = require('../controllers/advice');
 let AdviceService = require('../services/advice');
+let RecommendationService = require('../services/recommendation');
 let Contentful = require('../lib/contentful');
+let CarmudiApiSearch = require('../lib/carmudi_api_search');
 
 /**
  * Returns an instance of the logger
@@ -25,11 +27,29 @@ serviceLocator.register('adviceService', (serviceLocator) => {
 });
 
 /**
+ * Returns an instance of the recommendation service
+ */
+serviceLocator.register('recommendationService', (serviceLocator) => {
+    let logger = serviceLocator.get('logger');
+    let apiSearch = serviceLocator.get('carmudiApiSearch');
+    return new RecommendationService(logger, apiSearch);
+});
+
+/**
  * Returns an instance of the advice controller
  */
 serviceLocator.register('adviceController', (serviceLocator) => {
     let adviceService = serviceLocator.get('adviceService');
-    return new AdviceController(adviceService);
+    let recommendationService = serviceLocator.get('recommendationService');
+    return new AdviceController(adviceService, recommendationService);
+});
+
+/**
+ * Returns an instance of the carmudi api search helper library
+ */
+serviceLocator.register('carmudiApiSearch', (serviceLocator) => {
+    let logger = serviceLocator.get('logger');
+    return new CarmudiApiSearch(config.services.carmudi_api_search, logger);
 });
 
 /**
