@@ -36,7 +36,7 @@ class RecommendationService {
         .catch(error => {
             this.logger.error(`Failed to fetch product suggestions for advice`);
             throw error;
-        })
+        });
     }
 }
 
