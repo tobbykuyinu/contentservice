@@ -1,0 +1,183 @@
+swagger: '2.0'
+info:
+  title: Content Service API
+  description: Contenful content platform consolidated with search engine results 
+  version: "0.1.0"
+host: api.carmudi.com
+schemes:
+  - https
+basePath: /content
+produces:
+  - application/hal+json
+paths:
+  /{postType}/{postSlug}:
+    get:
+      summary: get one Post by type and slug
+      description: General knowledge and advice about cars
+      parameters:
+        - name: X-API-Version
+          in: header
+          description: Content Service API version
+          required: true
+          type: string
+        - name: postType
+          in: path
+          description: type of post
+          required: true
+          type: string
+          enum: ['advice','review','bank','assurance']
+        - name: postSlug
+          in: path
+          description: post unique text identifier
+          required: true
+          type: string
+          pattern: ^[a-z0-9]+
+        - name: country
+          in: query
+          description: country where the search request must be performed
+          required: true
+          type: string
+        - name: lang
+          in: query
+          description: lang in which the search request must be performed
+          required: true
+          type: string    
+      tags:
+        - Posts
+      responses:
+        200:
+          description: one Post content
+          schema:
+            type: object
+            items:
+              $ref: '#/definitions/Post'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+definitions:
+  Post:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: Unique number identifier
+      slug:
+        type: string
+        description: Unique slug identifier
+      title:
+        type: string
+        description: post title
+      metadescription:
+        type: string
+        description: post meta description
+      hrefLang: 
+        type: array
+        items:
+          type: string
+        description: post list of langs
+      canonicalTag:
+        type: string
+        description: post canonical tag
+      postImage:
+        type: object
+        items: 
+          $ref: '#/definitions/Image'
+      category: 
+        type: array
+        items:
+          type: string
+        description: post list of categories
+      content: 
+        type: string
+        description: post content
+      widget: 
+        type: object
+        items: 
+          $ref: '#/definitions/Widget' 
+  Widget:
+    type: object
+    properties:
+      title:
+        type: string
+        description: post widget title
+      description:
+        type: string
+        description: post widget description
+      listing:
+        type: array
+        items:
+          type: object
+          items: 
+            $ref: '#/definitions/Listing' 
+        description: post widget list of listings
+  Listing:
+    type: object
+    properties:
+      sku: 
+        type: string
+        description: listing sku
+      slug: 
+        type: string
+        description: listing slug
+      title: 
+        type: string
+        description: listing title
+      vertical: 
+        type: string
+        description: listing vertical name
+      brand: 
+        type: string
+        description: listing brand name
+      model: 
+        type: string
+        description: listing model name
+      vertical_id: 
+        type: string
+        description: listing vertical unique id
+      brand_id: 
+        type: string
+        description: listing brand unique id
+      model_id: 
+        type: string
+        description: listing model unique id
+      categories:
+        type: array
+        items:
+          type: object
+          properties:
+            category_id:
+              type: string
+              description: category unique id
+            category_name:
+              type: string
+              description: category name
+      listingImage:
+        type: object
+        items: 
+          $ref: '#/definitions/Image'
+  Image:
+    type: object
+    properties:
+      title:
+        type: string
+        description: post image title
+      description:
+        type: string
+        description: post image description
+      url:
+        type: string
+        description: post image url
+      contentType:
+        type: string
+        description: post image type
+  Error:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      fields:
+        type: string
