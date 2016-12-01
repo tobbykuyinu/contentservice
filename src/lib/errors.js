@@ -4,7 +4,7 @@
 
 'use strict';
 
-let create = require('custom-error-generator');
+const create = require('custom-error-generator');
 
 module.exports = {
     AdviceNotFound: create('AdviceNotFound', { code: 'ADVICE_NOT_FOUND' }),

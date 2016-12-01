@@ -1,7 +1,7 @@
 'use strict';
 
-let contentful = require('contentful');
-let errors = require('./errors');
+const contentful = require('contentful');
+const errors = require('./errors');
 
 class Contentful {
 
