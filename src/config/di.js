@@ -1,12 +1,12 @@
 'use strict';
 
 const config = require('./config');
-let serviceLocator = require('../lib/service_locator');
-let AdviceController = require('../controllers/advice');
-let AdviceService = require('../services/advice');
-let RecommendationService = require('../services/recommendation');
-let Contentful = require('../lib/contentful');
-let CarmudiApiSearch = require('../lib/carmudi_api_search');
+const serviceLocator = require('../lib/service_locator');
+const AdviceController = require('../controllers/advice');
+const AdviceService = require('../services/advice');
+const RecommendationService = require('../services/recommendation');
+const Contentful = require('../lib/contentful');
+const CarmudiApiSearch = require('../lib/carmudi_api_search');
 
 /**
  * Returns an instance of the logger

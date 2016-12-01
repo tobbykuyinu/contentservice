@@ -1,9 +1,9 @@
 'use strict';
 
 const errors = require('./errors');
-let querystring = require('querystring');
-let request = require('requestretry').defaults({ json: true, maxAttempts: 2 });
-let pick = require('lodash.pick');
+const querystring = require('querystring');
+const request = require('requestretry').defaults({ json: true, maxAttempts: 2 });
+const pick = require('lodash.pick');
 
 class CarmudiApiSearch {
 

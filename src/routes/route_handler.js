@@ -1,7 +1,7 @@
 'use strict';
 
-let routes = require('./routes');
-let errors = require('../lib/errors');
+const routes = require('./routes');
+const errors = require('../lib/errors');
 
 class RouteHandler {
 

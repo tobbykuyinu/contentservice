@@ -23,9 +23,9 @@ class AdviceController {
      * @returns {Promise}
      */
     getAdvice(event, context) {
-        let slug = event.pathParameters.postSlug;
-        let country = event.queryStringParameters.country;
-        let language = event.queryStringParameters.language;
+        const slug = event.pathParameters.postSlug;
+        const country = event.queryStringParameters.country;
+        const language = event.queryStringParameters.language;
         let advice;
         let products;
 

@@ -1,7 +1,7 @@
 'use strict';
 
-let serviceLocator = require('../config/di');
-let adviceController = serviceLocator.get('adviceController');
+const serviceLocator = require('../config/di');
+const adviceController = serviceLocator.get('adviceController');
 
 let routes = {
     content: {

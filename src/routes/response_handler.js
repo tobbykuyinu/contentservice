@@ -1,7 +1,7 @@
 'use strict';
 
-let httpStatus = require('http-status');
-let errors = require('../lib/errors');
+const httpStatus = require('http-status');
+const errors = require('../lib/errors');
 
 module.exports = (responseData) => {
     let response = {

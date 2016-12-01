@@ -2,7 +2,7 @@
 
 const appName = 'contentservice';
 
-let config = {
+const config = {
     appName: appName,
     services: {
         contentful: {
