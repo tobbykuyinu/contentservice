@@ -1,20 +1,16 @@
 language: node_js
+node_js: "4.3"
 
 on:
    tags: true
 
 sudo: true
 
-branches:
-  only:
-    - master
-    - develop
-    - /\d+.\d+.\d+(?:rc\d+)?/
-    - release-candidate
-    - task/ih/INTCAR-5991-location-customer-address-google
+install:
+  - npm install
 
-script:
-  - echo "Add some tests"
+#script:
+#  - npm run regression
 
 after_success:
   - sudo pip install --upgrade pip

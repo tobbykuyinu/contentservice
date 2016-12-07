@@ -1,6 +1,6 @@
 {
   "name": "getOnePost",
-  "main": "src/index.js",
+  "main": "index.js",
   "version": "0.0.0",
   "dependencies": {
     "contentful": "3.8.0",
