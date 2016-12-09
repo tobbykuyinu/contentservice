@@ -131,7 +131,7 @@ definitions:
       priceTo:
         type: integer
         description: price to
-      year:
+      yearFrom:
         type: integer
         description: year from
       yearTo:
