@@ -19,10 +19,9 @@ class AdviceController {
     /**
      * getAdvice - handles the endpoint /content/advice/{postSlug}
      * @param event
-     * @param context
      * @returns {Promise}
      */
-    getAdvice(event, context) {
+    getAdvice(event) {
         const slug = event.pathParameters.postSlug;
         const country = event.queryStringParameters.country;
         const language = event.queryStringParameters.language;
@@ -36,7 +35,7 @@ class AdviceController {
         })
         .then(response => {
             products = response;
-            return { status: httpStatus.OK, body: {advice, products} };
+            return { status: httpStatus.OK, body: { advice, products } };
         })
         .catch(err => {
             let code;

@@ -3,7 +3,6 @@
 const errors = require('./errors');
 const querystring = require('querystring');
 const request = require('requestretry').defaults({ json: true, maxAttempts: 2 });
-const pick = require('lodash.pick');
 
 class CarmudiApiSearch {
 

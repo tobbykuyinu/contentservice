@@ -25,14 +25,46 @@ class Contentful {
      * @returns {Promise.<TResult>}
      */
     getEntryBySlug(slug) {
-        return this.client.getEntries({ 'content_type': 'post', 'fields.slug': slug })
+        return this.client.getEntries({ content_type: 'post', 'fields.slug': slug })
         .then((response) => {
             this.logger.info(`Successfully queried contentful for slug entry: ${slug}`);
-            return response.items;
+            return this.parseResponseData(response.items);
         }).catch((error) => {
             this.logger.error(`Failed to fetch data from contentful ${error.message}`);
             throw new errors.ApiError('An error occurred while trying to fetch data from contentful');
         });
+    }
+
+    /**
+     * Parse response to remove metadata and sub-fields' metadata
+     * @param responseData
+     * @returns {*}
+     */
+    parseResponseData(responseData) {
+        let objResponse = {};
+        let arrResponse = [];
+
+        if (Array.isArray(responseData)) {
+            responseData.forEach(data => {
+                arrResponse.push(this.parseResponseData(data));
+            });
+
+            return arrResponse;
+        } else if (typeof responseData === 'object') {
+            if (responseData.sys !== undefined && responseData.fields !== undefined) {
+                responseData = responseData.fields;
+            }
+
+            for (let prop in responseData) {
+                if (responseData.hasOwnProperty(prop)) {
+                    objResponse[prop] = this.parseResponseData(responseData[prop]);
+                }
+            }
+
+            return objResponse;
+        }
+
+        return responseData;
     }
 }
 

@@ -31,11 +31,12 @@ class RecommendationService {
                 this.logger.error(`Zero results found for search query: ${query}`);
             }
 
-            return response.items;
+            return [];//response.items;
         })
         .catch(error => {
-            this.logger.error(`Failed to fetch product suggestions for advice`);
-            throw error;
+            //failure to get products should not fail the entire request so we log and proceed
+            this.logger.error(`Failed to fetch product suggestions for advice ${error.message}`);
+            return [];
         });
     }
 }
