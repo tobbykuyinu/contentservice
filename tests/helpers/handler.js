@@ -1,7 +1,7 @@
 'use strict';
 
 const context = {};
-const index = require('../../src/index');
+const index = require('../../index');
 
 const handle = (event) => {
     return new Promise((resolve, reject) => {

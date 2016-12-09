@@ -1,6 +1,6 @@
 {
   "name": "getOnePost",
-  "main": "src/index.js",
+  "main": "index.js",
   "version": "0.0.0",
   "scripts": {
     "regression": "istanbul cover _mocha -- -R spec tests/regression/*"

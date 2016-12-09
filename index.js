@@ -1,7 +1,7 @@
 'use strict';
 
-let RouteHandler = require('./routes/route_handler');
-const responseHandler = require('./routes/response_handler');
+let RouteHandler = require('./src/routes/route_handler');
+const responseHandler = require('./src/routes/response_handler');
 
 exports.handler = (event, context, callback) => {
     try {
