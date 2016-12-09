@@ -153,7 +153,7 @@ describe('GET /{type}/{slug}', () => {
                 headers: joi.object().keys({
                     'Content-Type': joi.string().valid(validHeader).required()
                 }),
-                statusCode: joi.number().valid(httpStatus.INTERNAL_SERVER_ERROR).required(),
+                statusCode: joi.number().valid(httpStatus.NOT_FOUND).required(),
                 body: joi.object().keys({
                     message: joi.string().required(),
                     code: joi.string().required().valid('ADVICE_NOT_FOUND')
