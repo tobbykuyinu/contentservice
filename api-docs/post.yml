@@ -41,7 +41,7 @@ paths:
           in: query
           description: lang in which the search request must be performed
           required: true
-          type: string    
+          type: string
       tags:
         - Posts
         - Advices
@@ -51,18 +51,28 @@ paths:
           schema:
             type: object
             items:
-              $ref: '#/definitions/Post'
+              $ref: '#/definitions/AdviceResponse'
         default:
-          description: Unexpected error
+          description: Internal Server Error
           schema:
             $ref: '#/definitions/Error'
 definitions:
+  AdviceResponse:
+    type: object
+    properties:
+      advice:
+        type: object
+        description: Advice data object
+        items:
+          $ref: '#/definitions/Post'
+      products:
+        type: array
+        description: Recommended products associated with post
+        items:
+          $ref: '#/definitions/Listing'
   Post:
     type: object
     properties:
-      id:
-        type: integer
-        description: Unique number identifier
       slug:
         type: string
         description: Unique slug identifier
@@ -72,7 +82,7 @@ definitions:
       metadescription:
         type: string
         description: post meta description
-      hrefLang: 
+      hrefLang:
         type: array
         items:
           type: string
@@ -82,64 +92,166 @@ definitions:
         description: post canonical tag
       postImage:
         type: object
-        items: 
+        items:
           $ref: '#/definitions/Image'
-      category: 
+      category:
         type: array
         items:
           type: string
         description: post list of categories
-      content: 
+      content:
         type: string
         description: post content
-      widget: 
+      crossLinking:
+        type: array
+        items:
+          $ref: '#/definitions/Widget'
+        description: Relevant crosslinks for post
+      suggestionsWidget:
+        type: array
+        items:
+          $ref: '#/definitions/Widget'
+        description: Relevant suggestion widgets for post
+      tags:
+        type: string
+        description: Post tags
+      author:
         type: object
-        items: 
-          $ref: '#/definitions/Widget' 
+        items:
+          $ref: '#/definitions/Author'
   Widget:
+    type: object
+    properties:
+      widgetName:
+        type: string
+        description: post widget name
+      priceFrom:
+        type: integer
+        description: price from
+      priceTo:
+        type: integer
+        description: price to
+      year:
+        type: integer
+        description: year from
+      yearTo:
+        type: integer
+        description: year to
+      mileageFrom:
+        type: integer
+        description: mileage from
+      mileageTo:
+        type: integer
+        description: mileage to
+      transmission:
+        type: array
+        items:
+          type: string
+        description: transmission options
+      sellerType:
+        type: array
+        items:
+          type: string
+        description: seller type options
+      category:
+        type: array
+        items:
+          type: string
+        description: vehicle category options
+      condition:
+        type: array
+        items:
+          type: string
+        description: vehicle condition options
+      fuel:
+        type: array
+        items:
+          type: string
+        description: fuel options
+      model:
+        type: array
+        items:
+          type: string
+        description: model options
+      brand:
+        type: array
+        items:
+          type: string
+        description: brand options
+  Image:
     type: object
     properties:
       title:
         type: string
-        description: post widget title
+        description: post image title
       description:
         type: string
-        description: post widget description
-      listing:
-        type: array
-        items:
-          type: object
-          items: 
-            $ref: '#/definitions/Listing' 
-        description: post widget list of listings
+        description: post image description
+      file:
+        type: object
+        properties:
+          url:
+            type: string
+            description: image url
+          details:
+            type: object
+            properties:
+              size:
+                type: integer
+                description: image size
+              image:
+                type: object
+                properties:
+                  width:
+                    type: integer
+                    description: image width
+                  height:
+                    type: integer
+                    description: image height
+                description: image dimensions
+          fileName:
+            type: string
+            description: image file name
+          contentType:
+            type: string
+            description: image content type
+  Author:
+    type: object
+    properties:
+      fullName:
+        type: string
+        description: author's full name
+      description:
+        type: string
+        description: author's description
   Listing:
     type: object
     properties:
-      sku: 
+      sku:
         type: string
         description: listing sku
-      slug: 
+      slug:
         type: string
         description: listing slug
-      title: 
+      title:
         type: string
         description: listing title
-      vertical: 
+      vertical:
         type: string
         description: listing vertical name
-      brand: 
+      brand:
         type: string
         description: listing brand name
-      model: 
+      model:
         type: string
         description: listing model name
-      vertical_id: 
+      vertical_id:
         type: string
         description: listing vertical unique id
-      brand_id: 
+      brand_id:
         type: string
         description: listing brand unique id
-      model_id: 
+      model_id:
         type: string
         description: listing model unique id
       categories:
@@ -155,23 +267,8 @@ definitions:
               description: category name
       listingImage:
         type: object
-        items: 
+        items:
           $ref: '#/definitions/Image'
-  Image:
-    type: object
-    properties:
-      title:
-        type: string
-        description: post image title
-      description:
-        type: string
-        description: post image description
-      url:
-        type: string
-        description: post image url
-      contentType:
-        type: string
-        description: post image type
   Error:
     type: object
     properties:

@@ -29,7 +29,7 @@ class AdviceService {
                 throw new errors.AdviceNotFound('No Advice found for slug provided');
             }
 
-            return data[0].fields;
+            return data[0];
         })
         .catch(error => {
             this.logger.error(`Error getting advice for slug ${error.message}`);

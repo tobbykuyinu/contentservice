@@ -13,6 +13,12 @@ const config = {
             space_id: process.env.CONTENTFUL_SPACE_ID
         },
         carmudi_api_search: {
+            tier1: {
+                url: process.env.API_SEARCH_URL_TIER_1
+            },
+            tier2: {
+                url: process.env.API_SEARCH_URL_TIER_2
+            },
             url: process.env.API_SEARCH_URL
         },
         ga: {
