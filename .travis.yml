@@ -12,7 +12,7 @@ install:
 
 script:
   - jscs . && jshint .
-#  - npm run regression
+  - npm run regression
 
 after_success:
   - sudo pip install --upgrade pip
