@@ -8,8 +8,10 @@ sudo: true
 
 install:
   - npm install
+  - npm install jscs jshint -g
 
-#script:
+script:
+  - jscs . && jshint .
 #  - npm run regression
 
 after_success:
