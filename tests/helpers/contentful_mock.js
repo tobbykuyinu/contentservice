@@ -5,6 +5,10 @@ const config = require('../../src/config/config');
 const CONTENTFUL_URL = 'https://cdn.contentful.com';
 const adviceMockData = require('./advice_mock_data.json');
 
+/**
+ * Mocks the call to contentful advice fetch for success
+ * @param event
+ */
 const successAdviceResponse = (event) => {
     nock(CONTENTFUL_URL)
     .get(`/spaces/${config.services.contentful.space_id}` +
@@ -12,6 +16,10 @@ const successAdviceResponse = (event) => {
     .reply(200, adviceMockData);
 };
 
+/**
+ * Mocks the call to contentful advice fetch for error
+ * @param event
+ */
 const errorAdviceResponse = (event) => {
     nock(CONTENTFUL_URL)
     .get(`/spaces/${config.services.contentful.space_id}` +
