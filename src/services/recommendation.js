@@ -31,7 +31,7 @@ class RecommendationService {
                 this.logger.error(`Zero results found for search query: ${query}`);
             }
 
-            return [];//response.items;
+            return response.items;
         })
         .catch(error => {
             //failure to get products should not fail the entire request so we log and proceed
