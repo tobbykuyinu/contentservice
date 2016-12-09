@@ -23,15 +23,14 @@ class AdviceController {
      */
     getAdvice(event) {
         const slug = event.pathParameters.postSlug;
-        const country = event.queryStringParameters.country;
-        const language = event.queryStringParameters.language;
         let advice;
         let products;
 
         return this.adviceService.getAdviceBySlug(slug)
         .then(response => {
             advice = response;
-            return this.recommendationService.getProductsFromAdvice(response, country, language);
+            return []; //we return an empty array till we're ready to integrate API SEARCH
+            //return this.recommendationService.getProductsFromAdvice(response, country, language);
         })
         .then(response => {
             products = response;

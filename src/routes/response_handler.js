@@ -28,5 +28,6 @@ module.exports = (responseData) => {
         response.body = responseData.body || {};
     }
 
+    response.body = JSON.stringify(response.body);
     return response;
 };
