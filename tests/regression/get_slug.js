@@ -144,4 +144,25 @@ describe('GET /{type}/{slug}', () => {
         .then(done)
         .catch(done);
     });
+
+    it('should return a 404 when no advice is found for slug', (done) => {
+        contentfulMock.notFoundAdviceResponse(defaultEvent);
+        handler.handle(defaultEvent)
+        .then(response => {
+            const schema = {
+                headers: joi.object().keys({
+                    'Content-Type': joi.string().valid(validHeader).required()
+                }),
+                statusCode: joi.number().valid(httpStatus.NOT_FOUND).required(),
+                body: joi.object().keys({
+                    message: joi.string().required(),
+                    code: joi.string().required().valid('ADVICE_NOT_FOUND')
+                })
+            };
+
+            joi.assert(response, schema);
+        })
+        .then(done)
+        .catch(done);
+    });
 });

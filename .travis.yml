@@ -10,6 +10,11 @@ install:
   - npm install
   - npm install jscs jshint -g
 
+env:
+  - CONTENTFUL_CONTENT_DELIVERY_API_KEY=0abcd
+  - CONTENTFUL_CONTENT_PREVIEW_API_KEY=0abcd
+  - CONTENTFUL_SPACE_ID=0abcd
+
 script:
   - jscs . && jshint .
   - npm run regression
