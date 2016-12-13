@@ -52,8 +52,20 @@ paths:
             type: object
             items:
               $ref: '#/definitions/AdviceResponse'
-        default:
+        400:
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/Error'
+        404:
+          description: Not Found Error
+          schema:
+            $ref: '#/definitions/Error'
+        500:
           description: Internal Server Error
+          schema:
+            $ref: '#/definitions/Error'
+        424:
+          description: Failed Dependency Error
           schema:
             $ref: '#/definitions/Error'
 definitions:
@@ -273,9 +285,6 @@ definitions:
     type: object
     properties:
       code:
-        type: integer
-        format: int32
-      message:
         type: string
-      fields:
+      message:
         type: string
