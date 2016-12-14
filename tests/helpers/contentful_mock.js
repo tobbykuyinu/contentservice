@@ -3,8 +3,8 @@
 const nock = require('nock');
 const config = require('../../src/config/config');
 const CONTENTFUL_URL = 'https://cdn.contentful.com';
-const adviceMockData = require('./advice_mock_data.json');
-const emptyAdviceMockData = require('./empty_advice_mock_data.json');
+const adviceMockData = require('./mock_data/advice_mock_data.json');
+const emptyAdviceMockData = require('./mock_data/empty_advice_mock_data.json');
 
 /**
  * Mocks the call to contentful advice fetch for success
