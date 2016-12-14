@@ -1,0 +1,13 @@
+web_service:
+  build: .
+  container_name: contentservice
+
+  ports:
+    - 8082:8082
+
+  env_file:
+    - ./app.local.env
+
+  volumes:
+    - .:/src
+    - ./docker_logs/contentservice:/var/log/applications/contentservice
