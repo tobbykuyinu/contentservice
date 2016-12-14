@@ -1,6 +1,7 @@
 'use strict';
 
 const errors = require('../lib/errors');
+const TYPE = 'advice';
 
 class AdviceService {
 
@@ -20,7 +21,7 @@ class AdviceService {
      * @param slug
      */
     getAdviceBySlug(slug) {
-        return this.contentProvider.getEntryBySlug(slug)
+        return this.contentProvider.getEntryBySlug(TYPE, slug)
         .then(data => {
             this.logger.info('Successfully fetched data for slug');
 
