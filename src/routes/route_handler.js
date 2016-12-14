@@ -2,6 +2,7 @@
 
 const routes = require('./routes');
 const errors = require('../lib/errors');
+const httpStatus = require('http-status');
 
 class RouteHandler {
 
@@ -35,7 +36,10 @@ class RouteHandler {
      */
     call(resource, endpoint) {
         if (routes[resource] === undefined || routes[resource][endpoint] === undefined) {
-            return Promise.reject(new errors.MethodNotImplemented('Method not implemented'));
+            return Promise.reject({
+                status: httpStatus.NOT_IMPLEMENTED,
+                error: new errors.MethodNotImplemented('Method not implemented')
+            });
         }
 
         return routes[resource][endpoint](this.event, this.context);

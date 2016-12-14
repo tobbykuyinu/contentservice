@@ -46,7 +46,7 @@ describe('GET /{type}/{slug}', () => {
                         content: joi.string().required(),
                         slug: joi.string().required(),
                         crossLinking: joi.array().required().items(
-                            joi.object().required().keys({
+                            joi.object().optional().keys({
                                 widgetName: joi.string().required(),
                                 transmission: joi.array().optional().items(
                                     joi.string().required()
@@ -75,6 +75,15 @@ describe('GET /{type}/{slug}', () => {
                                 yearTo: joi.number().integer().optional().min(1900).max(2018),
                                 mileageFrom: joi.number().integer().optional(),
                                 mileageTo: joi.number().integer().optional(),
+                            }),
+                            joi.object().optional().keys({
+                                widgetName: joi.string().required(),
+                                linkItem: joi.array().required().min(10).items(
+                                    joi.object().required().keys({
+                                        title: joi.string().required(),
+                                        link: joi.string().required()
+                                    })
+                                )
                             })
                         ),
                         suggestionsWidget: joi.array().required().items(
