@@ -123,6 +123,15 @@ describe('GET /{type}/{slug}', () => {
                             fullName: joi.string().required(),
                             description: joi.string().optional()
                         }),
+                        language: joi.array().required().max(1).items(
+                            joi.string().required()
+                        ),
+                        country: joi.array().required().max(1).items(
+                            joi.string().required()
+                        ),
+                        robotsMetatags: joi.array().required().max(1).items(
+                            joi.string().required()
+                        ),
                     })
                 })
             };
