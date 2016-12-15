@@ -3,7 +3,8 @@
   "main": "index.js",
   "version": "0.0.0",
   "scripts": {
-    "regression": "istanbul cover _mocha -- -R spec tests/regression/*"
+    "regression": "istanbul cover _mocha -- -R spec tests/regression/*",
+    "local": "node local/server.js"
   },
   "dependencies": {
     "contentful": "3.8.0",
