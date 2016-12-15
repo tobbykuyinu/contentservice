@@ -7,3 +7,4 @@ cache.properties
 docker_logs/**
 coverage/**
 node_modules/**
+README.md

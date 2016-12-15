@@ -34,6 +34,9 @@ const slugHandler = (req, res, next) => {
     .then(next);
 };
 
+server.get('/', (req, res, next) => {
+    res.send('Welcome to Carmudi Content Service'); next();
+});
 server.get('/content/:postType/:postSlug', slugHandler);
 server.on('uncaughtException', (req, res, route, error) => {
     // tell developers what went wrong
