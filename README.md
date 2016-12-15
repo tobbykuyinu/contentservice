@@ -1,4 +1,4 @@
-# getOnePost
+# Carmudi Content Service
 
 > Lambda function
 
@@ -12,25 +12,41 @@
 
 ### How does this work?
 
-Please see the [grunt-aws-lambda](https://github.com/Tim-B/grunt-aws-lambda) repo for details.
+For local development, we've created a node server in the local directory
 
 ### Invoking locally
 
-```bash
-grunt lambda_invoke
-```
+There are two ways to start the server locally:
 
-### Create deployment package
+#### If you have npm and node (v >= 4.3) installed
 
-```bash
-grunt lambda_package
-```
+Run the following commands to start a server:
+ - `npm install`
+ - `npm run local`
 
-### Automated deploy
+#### Using Docker with Docker installed (v >= 1.12)
 
-```bash
-grunt deploy
-```
+Run the following command to start the local server:
+ - `sh local/start.sh`
+ 
+Following any of the above steps should make the app accessible locally on the port specified in the `local/server.js` file (`8082`) and visiting the url `localhost:8082` should display a message `Welcome to Carmudi Content Service`
+
+You can now make requests via the application like this:
+ - `http://localhost:8082/content/{postType}/{postSlug}` 
+
+For an example:
+ - `http://localhost:8082/content/advice/this-is-a-test`
+
+#### Code Quality and Tests
+
+Linting and regression tests have been setup for the project. To run linting:
+ - `npm install jscs jshint -g`
+ - `jscs . && jshint .`
+ 
+To run regression tests:
+ - `npm run regression`
+ 
+All commands are to be run from a node environment
 
 ## License
 

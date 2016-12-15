@@ -21,11 +21,12 @@ class Contentful {
 
     /**
      * Query contentful api with slug
+     * @param type
      * @param slug
      * @returns {Promise.<TResult>}
      */
-    getEntryBySlug(slug) {
-        return this.client.getEntries({ content_type: 'post', 'fields.slug': slug })
+    getEntryBySlug(type, slug) {
+        return this.client.getEntries({ content_type: type, 'fields.slug': slug, include: 2 })
         .then((response) => {
             this.logger.info(`Successfully queried contentful for slug entry: ${slug}`);
             return this.parseResponseData(response.items);

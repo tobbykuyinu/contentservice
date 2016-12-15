@@ -1,0 +1,466 @@
+{
+  "meta":{
+    "total":13928
+  },
+  "items":[
+    {
+      "status":"active",
+      "status_supplier_config":"active",
+      "top_position":true,
+      "premium_listing":false,
+      "title":"2017 Lexus LX",
+      "description":"LEXUS LX 570 2017MODEL FOR EXPORT ONLY COLOR: STARLIGHT BLACK INSIDE MELLOW WHITE",
+      "vertical":"cars",
+      "lifestyle":{
+        "6":"Luxury",
+        "7":"Offroad"
+      },
+      "edition":"570",
+      "year":"2017",
+      "price":{
+        "conditions":"CIF only (cargo, import, freight)",
+        "currency_iso":"AED",
+        "currency_symbol":"AED",
+        "currency_id":"1",
+        "value":"375000.00",
+        "price_conditions":"6"
+      },
+      "bob_id":"144359",
+      "certified":false,
+      "approved":true,
+      "country":"AE",
+      "brand":"Lexus",
+      "model":"LX",
+      "sku":"LE011CAAA33DZINTCARAE",
+      "alternate_sku":"C-AE-00144359",
+      "slug":"2017-lexus-lx-144359.html",
+      "user":{
+        "status":"active",
+        "customer_id":"19228",
+        "supplier_id":"19228",
+        "trusted":false,
+        "agent":true,
+        "agent_type":"dealer",
+        "email":"mohamad@gnnmotors.net",
+        "agency":"GNN Motors",
+        "item_contact_name":"Mr. Mohamad",
+        "phone":{
+          "office":"",
+          "home":"+971527428521",
+          "mobile":"+971527428521",
+          "display_mobile":true,
+          "display_home":false,
+          "display_office":false
+        },
+        "user_address":{
+          "customer_address_id":"86730",
+          "country":"United Arab Emirates",
+          "display":false,
+          "region":"Dubai",
+          "city":"Al Aweer",
+          "area":"Al Aweer",
+          "location":{
+            "lat":"25.175657300000000",
+            "lon":"55.546903200000000"
+          },
+          "google_formatted_address":"Al Aweer",
+          "google_place_id":"ChIJz0ZOqr2J9T4RwbPmEd0F-fU",
+          "agency_address":"Al Aweer Automarket",
+          "region_id":"19",
+          "city_id":"253",
+          "area_id":"253"
+        },
+        "owner_url_key":"gnn-motors",
+        "seller_logo":"AE/logo/19228_gnn-motors_84bddd0b025ea7b9e2444b8338dd5c01.jpg"
+      },
+      "dates":{
+        "created_at":"2016-10-26 17:18:18",
+        "activated_at":"2016-10-26 19:01:46",
+        "starts_at":"2016-11-12 08:27:56",
+        "ends_at":"2017-04-24 15:01:46",
+        "updated_at":"2016-11-16 08:44:33"
+      },
+      "attributes":{
+        "general":{
+          "color":"Black",
+          "condition":"New",
+          "doors":0,
+          "doors_id":0,
+          "drive_type_id":0,
+          "engine":"10",
+          "fuel":"Petrol",
+          "transmission":"Automatic",
+          "mileage":"0",
+          "power":0,
+          "seats":0,
+          "setup":"",
+          "type":"",
+          "color_id":"1",
+          "condition_id":"1",
+          "fuel_id":"1",
+          "transmission_id":"2"
+        },
+        "warranty":"No warranty",
+        "equipment":{
+        },
+        "exterior":{
+          "1":"Alloy Wheels",
+          "3":"Roof Rack",
+          "4":"Xenon Lights",
+          "5":"Winch",
+          "6":"Fog Lights",
+          "7":"Spotlights",
+          "8":"LED Lights"
+        },
+        "interior":{
+        },
+        "warranty_type_id":"1",
+        "warranty_years_id":"1"
+      },
+      "categories":{
+        "29":"Cars"
+      },
+      "images":[
+        {
+          "id":"810573",
+          "name":"listing_images/AE/upload_5810ac6d5371c1.96994072.jpg",
+          "url":"http://staging-cdn.carmudi.com/-7bSneI4LxVaG8uhTgx9ul5pl9E=/filters:watermark(http://staging-cdn.carmudi.com/z1JzNSglXy6TpbQnTIRW41vjx_4=//WATERMARK/carmudi.png,0,0,0)/listing_images/AE/upload_5810ac6d5371c1.96994072.jpg",
+          "main":true,
+          "rotation":"0",
+          "title":""
+        },
+        {
+          "id":"810574",
+          "name":"listing_images/AE/upload_5810ac7c6bf3b9.03555959.jpg",
+          "url":"http://staging-cdn.carmudi.com/cCCKDo51SGL-6sEynyETYxGeM_Y=/filters:watermark(http://staging-cdn.carmudi.com/z1JzNSglXy6TpbQnTIRW41vjx_4=//WATERMARK/carmudi.png,0,0,0)/listing_images/AE/upload_5810ac7c6bf3b9.03555959.jpg",
+          "main":false,
+          "rotation":"0",
+          "title":""
+        },
+        {
+          "id":"810575",
+          "name":"listing_images/AE/upload_5810ac8809d6c7.11639844.jpg",
+          "url":"http://staging-cdn.carmudi.com/OiOwfOz52pzFypg6U-c26Yv2zUQ=/filters:watermark(http://staging-cdn.carmudi.com/z1JzNSglXy6TpbQnTIRW41vjx_4=//WATERMARK/carmudi.png,0,0,0)/listing_images/AE/upload_5810ac8809d6c7.11639844.jpg",
+          "main":false,
+          "rotation":"0",
+          "title":""
+        },
+        {
+          "id":"810576",
+          "name":"listing_images/AE/upload_5810ac937db113.41966691.jpg",
+          "url":"http://staging-cdn.carmudi.com/4iS_JSnLYZglPaF_UKCYxgJzbiM=/filters:watermark(http://staging-cdn.carmudi.com/z1JzNSglXy6TpbQnTIRW41vjx_4=//WATERMARK/carmudi.png,0,0,0)/listing_images/AE/upload_5810ac937db113.41966691.jpg",
+          "main":false,
+          "rotation":"0",
+          "title":""
+        },
+        {
+          "id":"810577",
+          "name":"listing_images/AE/upload_5810ac97967768.15462381.jpg",
+          "url":"http://staging-cdn.carmudi.com/Wl-Hv6bfYwYA85Xk-FCmo-QvLlA=/filters:watermark(http://staging-cdn.carmudi.com/z1JzNSglXy6TpbQnTIRW41vjx_4=//WATERMARK/carmudi.png,0,0,0)/listing_images/AE/upload_5810ac97967768.15462381.jpg",
+          "main":false,
+          "rotation":"0",
+          "title":""
+        },
+        {
+          "id":"810578",
+          "name":"listing_images/AE/upload_5810acaae11cb4.47284497.jpg",
+          "url":"http://staging-cdn.carmudi.com/s9atyCNHBpOYtqUOka_RuIgLz-E=/filters:watermark(http://staging-cdn.carmudi.com/z1JzNSglXy6TpbQnTIRW41vjx_4=//WATERMARK/carmudi.png,0,0,0)/listing_images/AE/upload_5810acaae11cb4.47284497.jpg",
+          "main":false,
+          "rotation":"0",
+          "title":""
+        },
+        {
+          "id":"810579",
+          "name":"listing_images/AE/upload_5810acb3111e70.75713157.jpg",
+          "url":"http://staging-cdn.carmudi.com/UfvbdebAtuAjpzq2b14VTdcPsHA=/filters:watermark(http://staging-cdn.carmudi.com/z1JzNSglXy6TpbQnTIRW41vjx_4=//WATERMARK/carmudi.png,0,0,0)/listing_images/AE/upload_5810acb3111e70.75713157.jpg",
+          "main":false,
+          "rotation":"0",
+          "title":""
+        },
+        {
+          "id":"810580",
+          "name":"listing_images/AE/upload_5810acbeca70d5.33142764.jpg",
+          "url":"http://staging-cdn.carmudi.com/AAR9j7AQBjs-BML9GeSvqHjWCV4=/filters:watermark(http://staging-cdn.carmudi.com/z1JzNSglXy6TpbQnTIRW41vjx_4=//WATERMARK/carmudi.png,0,0,0)/listing_images/AE/upload_5810acbeca70d5.33142764.jpg",
+          "main":false,
+          "rotation":"0",
+          "title":""
+        },
+        {
+          "id":"810581",
+          "name":"listing_images/AE/upload_5810acca4b0796.43677448.jpg",
+          "url":"http://staging-cdn.carmudi.com/iRU3qrwh-qc3WD416ehhOSv8glc=/filters:watermark(http://staging-cdn.carmudi.com/z1JzNSglXy6TpbQnTIRW41vjx_4=//WATERMARK/carmudi.png,0,0,0)/listing_images/AE/upload_5810acca4b0796.43677448.jpg",
+          "main":false,
+          "rotation":"0",
+          "title":""
+        },
+        {
+          "id":"810582",
+          "name":"listing_images/AE/upload_5810acd3c29754.75556534.jpg",
+          "url":"http://staging-cdn.carmudi.com/H7I5Jr9ePJlhNNIRp0Ixodrgvus=/filters:watermark(http://staging-cdn.carmudi.com/z1JzNSglXy6TpbQnTIRW41vjx_4=//WATERMARK/carmudi.png,0,0,0)/listing_images/AE/upload_5810acd3c29754.75556534.jpg",
+          "main":false,
+          "rotation":"0",
+          "title":""
+        },
+        {
+          "id":"810583",
+          "name":"listing_images/AE/upload_5810aceb876fe1.51669702.jpg",
+          "url":"http://staging-cdn.carmudi.com/jhwNohLZBwhDj6gg-afDomhax6A=/filters:watermark(http://staging-cdn.carmudi.com/z1JzNSglXy6TpbQnTIRW41vjx_4=//WATERMARK/carmudi.png,0,0,0)/listing_images/AE/upload_5810aceb876fe1.51669702.jpg",
+          "main":false,
+          "rotation":"0",
+          "title":""
+        },
+        {
+          "id":"810584",
+          "name":"listing_images/AE/upload_5810acf7dcdbd1.58411192.jpg",
+          "url":"http://staging-cdn.carmudi.com/Z_QwiDJ8VWs7dO8XHzPZD7FC2xQ=/filters:watermark(http://staging-cdn.carmudi.com/z1JzNSglXy6TpbQnTIRW41vjx_4=//WATERMARK/carmudi.png,0,0,0)/listing_images/AE/upload_5810acf7dcdbd1.58411192.jpg",
+          "main":false,
+          "rotation":"0",
+          "title":""
+        },
+        {
+          "id":"810585",
+          "name":"listing_images/AE/upload_5810ad00747c23.37072295.jpg",
+          "url":"http://staging-cdn.carmudi.com/26WSScWIjWCbCbOOp6Ra9KmD5Ko=/filters:watermark(http://staging-cdn.carmudi.com/z1JzNSglXy6TpbQnTIRW41vjx_4=//WATERMARK/carmudi.png,0,0,0)/listing_images/AE/upload_5810ad00747c23.37072295.jpg",
+          "main":false,
+          "rotation":"0",
+          "title":""
+        },
+        {
+          "id":"810586",
+          "name":"listing_images/AE/upload_5810ad090ffbb1.09064271.jpg",
+          "url":"http://staging-cdn.carmudi.com/QJtXxVGw7CiQhzfFxevpYmaCNPs=/filters:watermark(http://staging-cdn.carmudi.com/z1JzNSglXy6TpbQnTIRW41vjx_4=//WATERMARK/carmudi.png,0,0,0)/listing_images/AE/upload_5810ad090ffbb1.09064271.jpg",
+          "main":false,
+          "rotation":"0",
+          "title":""
+        }
+      ],
+      "rejected_comment":"",
+      "vertical_id":"1",
+      "brand_id":"11",
+      "model_id":"845"
+    },
+    {
+      "status":"active",
+      "status_supplier_config":"active",
+      "top_position":true,
+      "premium_listing":true,
+      "title":"2014 Dodge Challenger",
+      "description":"Bought brand new from Trading in April 2015. Full Service History, GCC spec, under warranty. Expat owned and driven, parked underground and carefully maintained and pampered. Has CQuartz Paint protection on Body and wheels, and front clear bra. Stickers from Dealer, not after market. No modifications. Vehicle is bone stock and never raced/driven aggressively. Genuine buyers only. Time wasters excuse.",
+      "vertical":"cars",
+      "lifestyle":{
+        "5":"Sports Car",
+        "6":"Luxury"
+      },
+      "edition":"SRT8",
+      "year":"2014",
+      "price":{
+        "conditions":"None",
+        "currency_iso":"AED",
+        "currency_symbol":"AED",
+        "currency_id":"1",
+        "value":"126000.00",
+        "price_conditions":"1"
+      },
+      "bob_id":"138436",
+      "certified":false,
+      "approved":true,
+      "country":"AE",
+      "brand":"Dodge",
+      "model":"Challenger",
+      "sku":"DO034CAAA2YTGINTCARAE",
+      "alternate_sku":"C-AE-00138436",
+      "slug":"2014-dodge-challenger-138436-43.html",
+      "user":{
+        "status":"active",
+        "customer_id":"12988",
+        "supplier_id":"12988",
+        "trusted":false,
+        "agent":false,
+        "agent_type":"private",
+        "email":"jdmtra@yahoo.com",
+        "agency":"",
+        "item_contact_name":"Jai",
+        "phone":{
+          "office":"",
+          "home":"+971569381822",
+          "mobile":"+971569381822",
+          "display_mobile":true,
+          "display_home":false,
+          "display_office":false
+        },
+        "user_address":{
+          "customer_address_id":"13115",
+          "country":"United Arab Emirates",
+          "display":false,
+          "region":"Abu Dhabi",
+          "city":"Al Nahyan",
+          "area":"Abu Dhabi Airport",
+          "location":{
+            "lat":"23.424075999999999",
+            "lon":"53.847817999999997"
+          },
+          "google_formatted_address":"",
+          "google_place_id":"",
+          "agency_address":"",
+          "region_id":"17",
+          "city_id":"58",
+          "area_id":"2"
+        },
+        "owner_url_key":"12988",
+        "seller_logo":""
+      },
+      "dates":{
+        "created_at":"2016-10-12 10:13:14",
+        "activated_at":"2016-10-12 13:58:42",
+        "starts_at":"2016-11-07 06:45:23",
+        "ends_at":"2017-04-10 09:58:00",
+        "updated_at":"2016-11-16 08:44:33"
+      },
+      "attributes":{
+        "general":{
+          "color":"Blue",
+          "condition":"New",
+          "doors":"2",
+          "doors_id":"1",
+          "drive_type_id":0,
+          "engine":"6400",
+          "fuel":"Petrol",
+          "transmission":"Automatic",
+          "mileage":"0",
+          "power":"470",
+          "seats":0,
+          "setup":"",
+          "type":"",
+          "color_id":"3",
+          "condition_id":"1",
+          "fuel_id":"1",
+          "transmission_id":"2"
+        },
+        "warranty":"No warranty",
+        "equipment":{
+          "2":"Traction Control",
+          "3":"Power Steering",
+          "4":"Anti-Lock Braking System",
+          "5":"Keyless Entry",
+          "6":"Cruise Control",
+          "8":"Power door locks",
+          "9":"Sunroof",
+          "10":"Power Windows",
+          "11":"Electric mirrors"
+        },
+        "exterior":{
+          "1":"Alloy Wheels",
+          "4":"Xenon Lights",
+          "6":"Fog Lights",
+          "8":"LED Lights"
+        },
+        "interior":{
+          "1":"Driver Airbag",
+          "2":"Passenger Airbag",
+          "3":"Side Airbags",
+          "4":"Air Condition",
+          "5":"Heated Seats",
+          "6":"Navigation System",
+          "7":"Cup holders",
+          "8":"AM/FM Stereo",
+          "9":"CD Audio system",
+          "10":"iPod/MP3 compatible"
+        },
+        "warranty_type_id":"1",
+        "warranty_years_id":"1"
+      },
+      "categories":{
+        "29":"Cars",
+        "43":"Saloon"
+      },
+      "images":[
+        {
+          "id":"790266",
+          "name":"listing_images/AE/upload_57fdd3aa2cd4f5.80032176.jpg",
+          "url":"http://staging-cdn.carmudi.com/e2SK9LMcXyNsLfC3H8HBYET8ClU=/filters:watermark(http://staging-cdn.carmudi.com/z1JzNSglXy6TpbQnTIRW41vjx_4=//WATERMARK/carmudi.png,0,0,0)/listing_images/AE/upload_57fdd3aa2cd4f5.80032176.jpg",
+          "main":true,
+          "rotation":"0",
+          "title":""
+        },
+        {
+          "id":"790267",
+          "name":"listing_images/AE/upload_57fdd3aec50b22.10386046.jpg",
+          "url":"http://staging-cdn.carmudi.com/hTv11mVyb2E2syneHh5dnS0wWjk=/filters:watermark(http://staging-cdn.carmudi.com/z1JzNSglXy6TpbQnTIRW41vjx_4=//WATERMARK/carmudi.png,0,0,0)/listing_images/AE/upload_57fdd3aec50b22.10386046.jpg",
+          "main":false,
+          "rotation":"0",
+          "title":""
+        },
+        {
+          "id":"790268",
+          "name":"listing_images/AE/upload_57fdd3b32cabc7.71313072.jpg",
+          "url":"http://staging-cdn.carmudi.com/LYPqu9FYeukxjjx7VmTEd5X2vag=/filters:watermark(http://staging-cdn.carmudi.com/z1JzNSglXy6TpbQnTIRW41vjx_4=//WATERMARK/carmudi.png,0,0,0)/listing_images/AE/upload_57fdd3b32cabc7.71313072.jpg",
+          "main":false,
+          "rotation":"0",
+          "title":""
+        },
+        {
+          "id":"790269",
+          "name":"listing_images/AE/upload_57fdd3b8506827.54755023.jpg",
+          "url":"http://staging-cdn.carmudi.com/TphK0Tk9EB8ApKbu3moscao8obU=/filters:watermark(http://staging-cdn.carmudi.com/z1JzNSglXy6TpbQnTIRW41vjx_4=//WATERMARK/carmudi.png,0,0,0)/listing_images/AE/upload_57fdd3b8506827.54755023.jpg",
+          "main":false,
+          "rotation":"0",
+          "title":""
+        },
+        {
+          "id":"790270",
+          "name":"listing_images/AE/upload_57fdd3bd33a7d3.97022783.jpg",
+          "url":"http://staging-cdn.carmudi.com/g5U6q_j--jli79KeE49XXGYkZyQ=/filters:watermark(http://staging-cdn.carmudi.com/z1JzNSglXy6TpbQnTIRW41vjx_4=//WATERMARK/carmudi.png,0,0,0)/listing_images/AE/upload_57fdd3bd33a7d3.97022783.jpg",
+          "main":false,
+          "rotation":"0",
+          "title":""
+        },
+        {
+          "id":"790271",
+          "name":"listing_images/AE/upload_57fdd3c2a98754.59428351.jpg",
+          "url":"http://staging-cdn.carmudi.com/mbnesHIhQxupmdkZFE_oXGy8lvQ=/filters:watermark(http://staging-cdn.carmudi.com/z1JzNSglXy6TpbQnTIRW41vjx_4=//WATERMARK/carmudi.png,0,0,0)/listing_images/AE/upload_57fdd3c2a98754.59428351.jpg",
+          "main":false,
+          "rotation":"0",
+          "title":""
+        },
+        {
+          "id":"790272",
+          "name":"listing_images/AE/upload_57fdd3c7306902.92468469.jpg",
+          "url":"http://staging-cdn.carmudi.com/vifUBc4roF4kyEtuhavTLw6NjGQ=/filters:watermark(http://staging-cdn.carmudi.com/z1JzNSglXy6TpbQnTIRW41vjx_4=//WATERMARK/carmudi.png,0,0,0)/listing_images/AE/upload_57fdd3c7306902.92468469.jpg",
+          "main":false,
+          "rotation":"0",
+          "title":""
+        },
+        {
+          "id":"790273",
+          "name":"listing_images/AE/upload_57fdd3cb904244.88757840.jpg",
+          "url":"http://staging-cdn.carmudi.com/3Myakz2NpWdBi8F8sPEcIBJjWUg=/filters:watermark(http://staging-cdn.carmudi.com/z1JzNSglXy6TpbQnTIRW41vjx_4=//WATERMARK/carmudi.png,0,0,0)/listing_images/AE/upload_57fdd3cb904244.88757840.jpg",
+          "main":false,
+          "rotation":"0",
+          "title":""
+        },
+        {
+          "id":"790274",
+          "name":"listing_images/AE/upload_57fdd3cf9ecbe2.55675504.jpg",
+          "url":"http://staging-cdn.carmudi.com/GxLOL8YIzlu1WzwGG6YOWNbKqDI=/filters:watermark(http://staging-cdn.carmudi.com/z1JzNSglXy6TpbQnTIRW41vjx_4=//WATERMARK/carmudi.png,0,0,0)/listing_images/AE/upload_57fdd3cf9ecbe2.55675504.jpg",
+          "main":false,
+          "rotation":"0",
+          "title":""
+        },
+        {
+          "id":"790275",
+          "name":"listing_images/AE/upload_57fdd3d3115159.21935978.jpg",
+          "url":"http://staging-cdn.carmudi.com/VheuVCFRZ1kOhr9DA6gkEXU169U=/filters:watermark(http://staging-cdn.carmudi.com/z1JzNSglXy6TpbQnTIRW41vjx_4=//WATERMARK/carmudi.png,0,0,0)/listing_images/AE/upload_57fdd3d3115159.21935978.jpg",
+          "main":false,
+          "rotation":"0",
+          "title":""
+        }
+      ],
+      "rejected_comment":"",
+      "vertical_id":"1",
+      "brand_id":"34",
+      "model_id":"1747"
+    }
+  ],
+  "aggregations":{
+  }
+}
