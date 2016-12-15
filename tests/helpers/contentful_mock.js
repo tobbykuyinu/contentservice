@@ -13,7 +13,8 @@ const emptyAdviceMockData = require('./mock_data/empty_advice_mock_data.json');
 const successAdviceResponse = (event) => {
     nock(CONTENTFUL_URL)
     .get(`/spaces/${config.services.contentful.space_id}` +
-        `/entries?content_type=post&fields.slug=${event.pathParameters.postSlug}`)
+        `/entries?content_type=${event.pathParameters.postType}&` +
+        `fields.slug=${event.pathParameters.postSlug}&include=2`)
     .reply(200, adviceMockData);
 };
 
@@ -24,7 +25,8 @@ const successAdviceResponse = (event) => {
 const notFoundAdviceResponse = (event) => {
     nock(CONTENTFUL_URL)
     .get(`/spaces/${config.services.contentful.space_id}` +
-        `/entries?content_type=post&fields.slug=${event.pathParameters.postSlug}`)
+        `/entries?content_type=${event.pathParameters.postType}&` +
+        `fields.slug=${event.pathParameters.postSlug}&include=2`)
     .reply(200, emptyAdviceMockData);
 };
 
@@ -35,7 +37,8 @@ const notFoundAdviceResponse = (event) => {
 const errorAdviceResponse = (event) => {
     nock(CONTENTFUL_URL)
     .get(`/spaces/${config.services.contentful.space_id}` +
-        `/entries?content_type=post&fields.slug=${event.pathParameters.postSlug}`)
+        `/entries?content_type=${event.pathParameters.postType}&` +
+        `fields.slug=${event.pathParameters.postSlug}&include=2`)
     .replyWithError('Error on contentful');
 };
 

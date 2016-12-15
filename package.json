@@ -1,5 +1,5 @@
 {
-  "name": "getOnePost",
+  "name": "carmudi-contentservice",
   "main": "index.js",
   "version": "0.0.0",
   "scripts": {
@@ -23,6 +23,7 @@
     "jshint": "2.9.4",
     "mocha": "3.2.0",
     "nock": "9.0.2",
+    "restify": "4.3.0",
     "sinon": "1.17.6"
   },
   "private": true,
