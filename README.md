@@ -16,7 +16,7 @@ For local development, we've created a node server in the local directory
 
 ### Invoking locally
 
-There are two ways to start the server locally:
+Before starting the server locally, ensure you have updated the `app.local.env` file with proper configuration for the environment variables. There are two ways to start the server locally:
 
 #### If you have npm and node (v >= 4.3) installed
 
