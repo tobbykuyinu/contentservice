@@ -131,6 +131,21 @@ definitions:
         type: object
         items:
           $ref: '#/definitions/Author'
+      language:
+        type: array
+        items:
+          type: string
+          description: Post language
+      country:
+        type: array
+        items:
+          type: string
+          description: Applicable country for post
+      robotsMetatags:
+        type: array
+        items:
+          type: string
+          description: Robots meta tags
   Widget:
     type: object
     properties:
