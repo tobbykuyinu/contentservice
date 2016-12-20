@@ -135,17 +135,17 @@ definitions:
         type: array
         items:
           type: string
-          description: Post language
+        description: Post language
       country:
         type: array
         items:
           type: string
-          description: Applicable country for post
+        description: Applicable country for post
       robotsMetatags:
         type: array
         items:
           type: string
-          description: Robots meta tags
+        description: Robots meta tags
   Widget:
     type: object
     properties:
