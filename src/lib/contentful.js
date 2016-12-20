@@ -2,6 +2,8 @@
 
 const contentful = require('contentful');
 const errors = require('./errors');
+const joi = require('joi');
+const adviceSchema = require('../validations/advice_post');
 
 class Contentful {
 
@@ -29,7 +31,10 @@ class Contentful {
         return this.client.getEntries({ content_type: type, 'fields.slug': slug, include: 2 })
         .then((response) => {
             this.logger.info(`Successfully queried contentful for slug entry: ${slug}`);
-            return this.parseResponseData(response.items);
+            const responseData = this.parseResponseData(response.items);
+            const joiValidation = joi.validate(responseData, adviceSchema);
+            console.log(joiValidation);
+            if(!joiValidation.error) return responseData;
         }).catch((error) => {
             this.logger.error(`Failed to fetch data from contentful ${error.message}`);
             throw new errors.ApiError('An error occurred while trying to fetch data from contentful');
