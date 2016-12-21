@@ -20,7 +20,7 @@ cd ~/release/; zip -r ~/package/"$package_name".zip *;
 cd $TRAVIS_BUILD_DIR
 git remote set-branches --add origin master
 git fetch
-[ ! -z $(git diff --name-only origin/master src/ index.js node_modules/ deploy/) ] && LAMBDA_CHANGED=true || LAMBDA_CHANGED=false
+[ ! -z $(git diff --name-only origin/master src/ index.js node_modules/ ) ] && LAMBDA_CHANGED=true || LAMBDA_CHANGED=false
 [ ! -z $(git diff --name-only origin/master api-docs/) ] && API_CHANGED=true || API_CHANGED=false
 
 if $LAMBDA_CHANGED
