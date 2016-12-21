@@ -32,9 +32,13 @@ class Contentful {
         .then((response) => {
             this.logger.info(`Successfully queried contentful for slug entry: ${slug}`);
             const responseData = this.parseResponseData(response.items);
-            const joiValidation = joi.validate(responseData, adviceSchema);
-            console.log(joiValidation);
-            if(!joiValidation.error) return responseData;
+            const joiValidation = joi.validate(responseData, adviceSchema.arrayValidation);
+
+            if (joiValidation.error) {
+                throw new Error(JSON.stringify(joiValidation.error.details));
+            }
+
+            return joiValidation.value;
         }).catch((error) => {
             this.logger.error(`Failed to fetch data from contentful ${error.message}`);
             throw new errors.ApiError('An error occurred while trying to fetch data from contentful');

@@ -106,6 +106,18 @@ const responseObject = {
         fullName: joi.string().required(),
         description: joi.string().optional()
     }),
+    language: joi.array().required().max(1).items(
+        joi.string().required()
+    ),
+    country: joi.array().required().max(1).items(
+        joi.string().required()
+    ),
+    robotsMetatags: joi.array().required().max(1).items(
+        joi.string().required()
+    ),
 };
 
-module.exports = joi.array().required().items(responseObject);
+module.exports = {
+    objectValidation: responseObject,
+    arrayValidation: joi.array().required().items(responseObject)
+};
