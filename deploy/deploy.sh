@@ -23,7 +23,7 @@ git fetch
 [ ! -z $(git diff --name-only origin/master src/ index.js node_modules/ deploy/) ] && LAMBDA_CHANGED=true || LAMBDA_CHANGED=false
 [ ! -z $(git diff --name-only origin/master api-docs/) ] && API_CHANGED=true || API_CHANGED=false
 
-if [ LAMBDA_CHANGED == true ]
+if $LAMBDA_CHANGED
   then
     if [ $TRAVIS_BRANCH == "master" ]
       then
@@ -31,8 +31,14 @@ if [ LAMBDA_CHANGED == true ]
         version=$(aws lambda update-function-code --function-name getPost --s3-bucket carmudi-deploy-ap --s3-key $package_name.zip --publish --region ap-southeast-1|jq .Version)
         aws lambda update-alias --function-name getOnePost --name prod --function-version $version --region ap-southeast-1
     elif [ $TRAVIS_BRANCH == "lambda-alias-creation" ]
+    then
         aws s3 cp ~/package/"$package_name".zip s3://carmudi-deploy-eu-central/PACKAGES/Service.Content/ --region=eu-central-1
         version=$(aws lambda update-function-code --function-name getPost --s3-bucket carmudi-deploy-eu-central --s3-key $package_name.zip --publish --region eu-central-1|jq .Version)
         aws lambda update-alias --function-name getOnePost --name dev --function-version $version --region eu-central-1
     fi
+fi
+
+if $API_CHANGED
+  then
+    echo "No code yet"
 fi
