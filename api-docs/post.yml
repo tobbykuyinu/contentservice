@@ -9,6 +9,7 @@ schemes:
 basePath: /content
 produces:
   - application/hal+json
+  - application/json
 paths:
   /{postType}/{postSlug}:
     get:
@@ -32,16 +33,6 @@ paths:
           required: true
           type: string
           pattern: ^[a-z0-9]+
-        - name: country
-          in: query
-          description: country where the search request must be performed
-          required: true
-          type: string
-        - name: lang
-          in: query
-          description: lang in which the search request must be performed
-          required: true
-          type: string
       tags:
         - Posts
         - Advices
@@ -68,6 +59,15 @@ paths:
           description: Failed Dependency Error
           schema:
             $ref: '#/definitions/Error'
+      x-amazon-apigateway-integration:
+          responses:
+            default:
+              statusCode: '200'
+          uri: 'arn:aws:apigateway:ap-southeast-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-southeast-1:993784152963:function:getPost/invocations'
+          passthroughBehavior: 'when_no_match'
+          httpMethod: 'POST'
+          contentHandling: 'CONVERT_TO_TEXT'
+          type: 'aws'
 definitions:
   AdviceResponse:
     type: object
