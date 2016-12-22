@@ -26,7 +26,7 @@ paths:
           description: type of post
           required: true
           type: string
-          enum: ['advice','review','bank','assurance']
+          enum: ['advice','finance','insurance']
         - name: postSlug
           in: path
           description: post unique text identifier
