@@ -3,10 +3,10 @@ info:
   title: Content Service API
   description: Contenful content platform consolidated with search engine results 
   version: "0.1.0"
-host: api.carmudi.com
+host: 2hps15f6m1.execute-api.ap-southeast-1.amazonaws.com
 schemes:
   - https
-basePath: /content
+basePath: /staging/content
 produces:
   - application/hal+json
   - application/json
@@ -16,11 +16,6 @@ paths:
       summary: get one Post by type and slug
       description: General knowledge and advice about cars
       parameters:
-        - name: X-API-Version
-          in: header
-          description: Content Service API version
-          required: true
-          type: string
         - name: postType
           in: path
           description: type of post
