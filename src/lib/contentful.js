@@ -32,6 +32,14 @@ class Contentful {
         .then((response) => {
             this.logger.info(`Successfully queried contentful for slug entry: ${slug}`);
             const responseData = this.parseResponseData(response.items);
+
+            //append content creation and update dates.
+            // These values are in the stripped off meta object so we add from here
+            if (responseData[0]) {
+                responseData[0].createdAt = response.items[0] ? response.items[0].sys.createdAt : null;
+                responseData[0].updatedAt = response.items[0] ? response.items[0].sys.createdAt : null;
+            }
+
             const joiValidation = joi.validate(responseData, adviceSchema.arrayValidation);
 
             if (joiValidation.error) {

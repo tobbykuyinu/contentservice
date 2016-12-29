@@ -29,8 +29,7 @@ class AdviceController {
         return this.adviceService.getAdviceBySlug(slug)
         .then(response => {
             advice = response;
-            return []; //we return an empty array till we're ready to integrate API SEARCH
-            //return this.recommendationService.getProductsFromAdvice(response, country, language);
+            return this.recommendationService.getProductsFromAdvice(advice);
         })
         .then(response => {
             products = response;

@@ -1,7 +1,6 @@
 'use strict';
 
 const errors = require('./errors');
-const querystring = require('querystring');
 const request = require('requestretry').defaults({ json: true, maxAttempts: 2 });
 
 class CarmudiApiSearch {
@@ -13,7 +12,7 @@ class CarmudiApiSearch {
      * @param logger
      */
     constructor(config, logger) {
-        this.baseUrl = config.url;
+        this.baseUrl = config.tier1.url;
         this.logger = logger;
     }
 
@@ -25,16 +24,10 @@ class CarmudiApiSearch {
      * @returns {Promise.<T>}
      */
     getSuggestions(query, country, language) {
-        let filter = {
-            page: 1,
-            limit: 2,
-            q: 'toyota',
-            vertical: 'cars'
-        };
-        filter = querystring.stringify(filter);
-        const endpoint = `${this.baseUrl}/search/${country}/${language}/listings?${filter}`;
+        const filter = this.parseFilter(query);
+        const endpoint = `${this.baseUrl}/search/${country}/${language}/listings?view=thumb`;
 
-        return request.post(endpoint)
+        return request.post(endpoint, { body: filter })
         .then(response => {
             this.logger.info(`Successfully fetched suggestions from Carmudi Search API`);
             return response.body;
@@ -43,6 +36,13 @@ class CarmudiApiSearch {
             this.logger.error(`Failed to query Carmudi Search API for recommendations ${error.message}`);
             throw new errors.ApiError('An error occurred while trying to communicate with the Carmudi Search API');
         });
+    }
+
+    parseFilter() {
+        return {
+            page: { num: 1, limit: 10 },
+            filters: { 'brand.code': 'toyota' }
+        };
     }
 }
 

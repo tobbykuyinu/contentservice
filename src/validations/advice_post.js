@@ -4,6 +4,8 @@ const joi = require('joi');
 
 const responseObject = {
     title: joi.string().required(),
+    createdAt: joi.string().required(),
+    updatedAt: joi.string().required(),
     metadescription: joi.string().required(),
     hrefLang: joi.array().required(),
     canonicalTag: joi.string().required(),
