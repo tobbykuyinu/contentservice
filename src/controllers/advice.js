@@ -43,7 +43,7 @@ class AdviceController {
                     code = httpStatus.NOT_FOUND;
                     break;
                 case error.ApiError:
-                    code = httpStatus.FAILED_DEPENDENCY;
+                    code = httpStatus.INTERNAL_SERVER_ERROR;
                     break;
                 default:
                     code = httpStatus.INTERNAL_SERVER_ERROR;
