@@ -18,8 +18,7 @@ const config = {
             },
             tier2: {
                 url: process.env.API_SEARCH_URL_TIER_2
-            },
-            url: process.env.API_SEARCH_URL
+            }
         },
         ga: {
             url: 'gaApiUrl',

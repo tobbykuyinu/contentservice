@@ -38,7 +38,7 @@ describe('GET /{type}/{slug}', () => {
                 headers: joi.object().keys({
                     'Content-Type': joi.string().valid(validHeader).required()
                 }),
-                statusCode: joi.number().valid(httpStatus.FAILED_DEPENDENCY).required(),
+                statusCode: joi.number().valid(httpStatus.INTERNAL_SERVER_ERROR).required(),
                 body: joi.object().keys({
                     message: joi.string().required(),
                     code: joi.string().required().valid('API_ERROR')

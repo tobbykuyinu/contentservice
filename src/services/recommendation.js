@@ -16,12 +16,12 @@ class RecommendationService {
     /**
      * Get products from advice data
      * @param advice
-     * @param country
-     * @param language
      * @returns {Promise.<T>}
      */
-    getProductsFromAdvice(advice, country, language) {
-        const query = advice.recommendedCarSuggestions;
+    getProductsFromAdvice(advice) {
+        const country = advice.country[0].toLowerCase();
+        const language = advice.language[0].toLowerCase();
+        const query = advice.suggestionsWidget;
 
         return this.client.getSuggestions(query, country, language)
         .then(response => {
