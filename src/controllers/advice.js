@@ -29,8 +29,7 @@ class AdviceController {
         return this.adviceService.getAdviceBySlug(slug)
         .then(response => {
             advice = response;
-            return []; //we return an empty array till we're ready to integrate API SEARCH
-            //return this.recommendationService.getProductsFromAdvice(response, country, language);
+            return this.recommendationService.getProductsFromAdvice(advice);
         })
         .then(response => {
             products = response;
@@ -44,7 +43,7 @@ class AdviceController {
                     code = httpStatus.NOT_FOUND;
                     break;
                 case error.ApiError:
-                    code = httpStatus.FAILED_DEPENDENCY;
+                    code = httpStatus.INTERNAL_SERVER_ERROR;
                     break;
                 default:
                     code = httpStatus.INTERNAL_SERVER_ERROR;
