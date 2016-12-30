@@ -141,6 +141,12 @@ definitions:
         items:
           type: string
         description: Robots meta tags
+      createdAt:
+        type: string
+        description: Post created date
+      updatedAt:
+        type: string
+        description: Post update date
   Widget:
     type: object
     properties:
