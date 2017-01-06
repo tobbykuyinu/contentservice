@@ -25,10 +25,18 @@ class Contentful {
      * Query contentful api with slug
      * @param type
      * @param slug
+     * @param category
      * @returns {Promise.<TResult>}
      */
-    getEntryBySlug(type, slug) {
-        return this.client.getEntries({ content_type: type, 'fields.slug': slug, include: 2 })
+    getEntryBySlug(type, slug, category) {
+        const filter = {
+            content_type: type,
+            'fields.slug': slug,
+            'fields.category': category,
+            include: 2
+        };
+
+        return this.client.getEntries(filter)
         .then((response) => {
             this.logger.info(`Successfully queried contentful for slug entry: ${slug}`);
             const responseData = this.parseResponseData(response.items);

@@ -1,6 +1,6 @@
 {
-  "resource": "/content/advice/{postSlug}",
-  "path": "/content/advice/this-is-a-test",
+  "resource": "/content/advice/{postCategory}/{postSlug}",
+  "path": "/content/advice/Tires/this-is-a-test",
   "httpMethod": "GET",
   "headers": null,
   "queryStringParameters": {
@@ -9,7 +9,8 @@
   },
   "pathParameters": {
     "postSlug": "this-is-a-test",
-    "postType": "advice"
+    "postType": "advice",
+    "postCategory": "Tires"
   },
   "stageVariables": null,
   "requestContext": {
@@ -31,7 +32,7 @@
       "userAgent": "Apache-HttpClient/4.5.x (Java/1.8.0_102)",
       "user": "993784152963"
     },
-    "resourcePath": "/content/{postType}/{postSlug}",
+    "resourcePath": "/content/{postType}/{postCategory}/{postSlug}",
     "httpMethod": "GET",
     "apiId": "2hps15f6m1"
   },

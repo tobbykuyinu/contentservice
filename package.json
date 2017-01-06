@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "regression": "istanbul cover _mocha -- -R spec tests/regression/*",
+    "lint": "node_modules/jscs/bin/jscs . && node_modules/jshint/bin/jshint .",
     "local": "node local/server.js"
   },
   "dependencies": {

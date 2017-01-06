@@ -1,7 +1,7 @@
 'use strict';
 
 const errors = require('../lib/errors');
-const TYPE = 'advice';
+const CONTENT_TYPE = 'advice';
 
 class AdviceService {
 
@@ -19,9 +19,10 @@ class AdviceService {
     /**
      * Get advice by slug - returns advice data for a given slug
      * @param slug
+     * @param category
      */
-    getAdviceBySlug(slug) {
-        return this.contentProvider.getEntryBySlug(TYPE, slug)
+    getAdviceBySlug(slug, category) {
+        return this.contentProvider.getEntryBySlug(CONTENT_TYPE, slug, category)
         .then(data => {
             this.logger.info('Successfully fetched data for slug');
 
