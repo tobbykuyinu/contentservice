@@ -12,9 +12,11 @@ const slugHandler = (req, res, next) => {
     let event = require('../event.json');
     const type = req.params.postType;
     const slug = req.params.postSlug;
+    const category = req.params.postCategory;
 
     event.pathParameters.postType = type;
     event.pathParameters.postSlug = slug;
+    event.pathParameters.postCategory = category;
 
     handleSimulator.handle(event)
     .then(response => {
@@ -37,7 +39,7 @@ const slugHandler = (req, res, next) => {
 server.get('/', (req, res, next) => {
     res.send('Welcome to Carmudi Content Service'); next();
 });
-server.get('/content/:postType/:postSlug', slugHandler);
+server.get('/content/:postType/:postCategory/:postSlug', slugHandler);
 server.on('uncaughtException', (req, res, route, error) => {
     // tell developers what went wrong
     logger.error(error.stack);

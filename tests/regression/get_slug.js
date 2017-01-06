@@ -8,7 +8,30 @@ const defaultEvent = require('../../event.json');
 const validHeader = 'application/json';
 const adviceSchema = require('../../src/validations/advice_post');
 
-describe('GET /{type}/{slug}', () => {
+describe('GET /{type}/{category}/{slug}', () => {
+    it('should fail to fetch a slug for an invalid route/content type', (done) => {
+        let event = Object.assign({}, defaultEvent);
+        event.pathParameters = { postType: 'invalidPostType' };
+
+        handler.handle(event)
+        .then(response => {
+            const schema = {
+                headers: joi.object().keys({
+                    'Content-Type': joi.string().valid(validHeader).required()
+                }),
+                statusCode: joi.number().valid(httpStatus.NOT_IMPLEMENTED).required(),
+                body: joi.object().keys({
+                    message: joi.string().required(),
+                    code: joi.string().required().valid('METHOD_NOT_IMPLEMENTED')
+                })
+            };
+
+            return joi.assert(response, schema);
+        })
+        .then(done)
+        .catch(done);
+    });
+
     it('should return a valid response when a slug is requested', (done) => {
         contentfulMock.successAdviceResponse(defaultEvent);
         handler.handle(defaultEvent)

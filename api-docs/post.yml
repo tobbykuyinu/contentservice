@@ -11,7 +11,7 @@ produces:
   - application/hal+json
   - application/json
 paths:
-  /{postType}/{postSlug}:
+  /{postType}/{postCategory}/{postSlug}:
     get:
       summary: get one Post by type and slug
       description: General knowledge and advice about cars
@@ -22,6 +22,12 @@ paths:
           required: true
           type: string
           enum: ['advice','finance','insurance']
+        - name: postCategory
+          in: path
+          description: post category
+          required: true
+          type: string
+          pattern: ^[a-z0-9]+
         - name: postSlug
           in: path
           description: post unique text identifier
@@ -48,10 +54,6 @@ paths:
             $ref: '#/definitions/Error'
         500:
           description: Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
-        424:
-          description: Failed Dependency Error
           schema:
             $ref: '#/definitions/Error'
       x-amazon-apigateway-integration:
