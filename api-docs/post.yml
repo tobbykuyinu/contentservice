@@ -27,13 +27,13 @@ paths:
           description: post category
           required: true
           type: string
-          pattern: ^[a-z0-9]+
+          pattern: ^[A-Za-z0-9\-\_]+
         - name: postSlug
           in: path
           description: post unique text identifier
           required: true
           type: string
-          pattern: ^[a-z0-9]+
+          pattern: ^[A-Za-z0-9\-\_]+
       tags:
         - Posts
         - Advices
