@@ -5,6 +5,7 @@ const config = require('../../src/config/config');
 const CONTENTFUL_URL = 'https://cdn.contentful.com';
 const adviceMockData = require('./mock_data/advice_mock_data.json');
 const emptyAdviceMockData = require('./mock_data/empty_advice_mock_data.json');
+const invalidSchemaAdviceMockData = require('./mock_data/invalid_advice_mock_data.json');
 
 /**
  * Mocks the call to contentful advice fetch for success
@@ -45,8 +46,22 @@ const errorAdviceResponse = (event) => {
     .replyWithError('Error on contentful');
 };
 
+/**
+ * Mocks the call to contentful for an invalid schema
+ * @param event
+ */
+const invalidSchemaResponse = (event) => {
+    nock(CONTENTFUL_URL)
+    .get(`/spaces/${config.services.contentful.space_id}` +
+        `/entries?content_type=${event.pathParameters.postType}&` +
+        `fields.slug=${event.pathParameters.postSlug}&` +
+        `fields.category=${event.pathParameters.postCategory}&include=2`)
+    .reply(200, invalidSchemaAdviceMockData);
+};
+
 module.exports = {
     successAdviceResponse,
     errorAdviceResponse,
-    notFoundAdviceResponse
+    notFoundAdviceResponse,
+    invalidSchemaResponse
 };
