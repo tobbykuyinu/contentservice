@@ -2,6 +2,37 @@
 
 const joi = require('joi');
 
+const widgetObject = {
+    widgetName: joi.string().required(),
+    transmission: joi.array().optional().items(
+        joi.string().required()
+    ),
+    sellerType: joi.array().optional().items(
+        joi.string().required()
+    ),
+    category: joi.array().optional().items(
+        joi.string().required()
+    ),
+    condition: joi.array().optional().items(
+        joi.string().required()
+    ),
+    fuel: joi.array().optional().items(
+        joi.string().required()
+    ),
+    model: joi.array().optional().items(
+        joi.string().required()
+    ),
+    brand: joi.array().optional().items(
+        joi.string().required()
+    ),
+    priceFrom: joi.number().integer().optional(),
+    priceTo: joi.number().integer().optional(),
+    yearFrom: joi.number().integer().optional().min(1900).max(2018),
+    yearTo: joi.number().integer().optional().min(1900).max(2018),
+    mileageFrom: joi.number().integer().optional(),
+    mileageTo: joi.number().integer().optional(),
+};
+
 const responseObject = {
     title: joi.string().required(),
     createdAt: joi.string().required(),
@@ -31,36 +62,7 @@ const responseObject = {
     content: joi.string().required(),
     slug: joi.string().required(),
     crossLinking: joi.array().required().items(
-        joi.object().optional().keys({
-            widgetName: joi.string().required(),
-            transmission: joi.array().optional().items(
-                joi.string().required()
-            ),
-            sellerType: joi.array().optional().items(
-                joi.string().required()
-            ),
-            category: joi.array().optional().items(
-                joi.string().required()
-            ),
-            condition: joi.array().optional().items(
-                joi.string().required()
-            ),
-            fuel: joi.array().optional().items(
-                joi.string().required()
-            ),
-            model: joi.array().optional().items(
-                joi.string().required()
-            ),
-            brand: joi.array().optional().items(
-                joi.string().required()
-            ),
-            priceFrom: joi.number().integer().optional(),
-            priceTo: joi.number().integer().optional(),
-            yearFrom: joi.number().integer().optional().min(1900).max(2018),
-            yearTo: joi.number().integer().optional().min(1900).max(2018),
-            mileageFrom: joi.number().integer().optional(),
-            mileageTo: joi.number().integer().optional(),
-        }),
+        joi.object().optional().keys(widgetObject),
         joi.object().optional().keys({
             widgetName: joi.string().required(),
             linkItem: joi.array().required().min(10).items(
@@ -71,37 +73,8 @@ const responseObject = {
             )
         })
     ),
-    suggestionsWidget: joi.array().required().items(
-        joi.object().required().keys({
-            widgetName: joi.string().required(),
-            transmission: joi.array().optional().items(
-                joi.string().required()
-            ),
-            sellerType: joi.array().optional().items(
-                joi.string().required()
-            ),
-            category: joi.array().optional().items(
-                joi.string().required()
-            ),
-            condition: joi.array().optional().items(
-                joi.string().required()
-            ),
-            fuel: joi.array().optional().items(
-                joi.string().required()
-            ),
-            model: joi.array().optional().items(
-                joi.string().required()
-            ),
-            brand: joi.array().optional().items(
-                joi.string().required()
-            ),
-            priceFrom: joi.number().integer().optional(),
-            priceTo: joi.number().integer().optional(),
-            year: joi.number().integer().optional().min(1900).max(2018),
-            yearTo: joi.number().integer().optional().min(1900).max(2018),
-            mileageFrom: joi.number().integer().optional(),
-            mileageTo: joi.number().integer().optional(),
-        })
+    suggestionsWidget: joi.array().required().min(1).items(
+        joi.object().required().keys(widgetObject)
     ),
     tags: joi.string().required(),
     author: joi.object().optional().keys({
