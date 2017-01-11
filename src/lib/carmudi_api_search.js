@@ -20,16 +20,16 @@ class CarmudiApiSearch {
 
     /**
      * Get suggestions from the carmudi search api
-     * @param query
+     * @param filter
      * @param country
      * @param language
      * @returns {Promise.<T>}
      */
-    getSuggestions(query, country, language) {
-        const filter = this.parseFilter(query);
+    getSuggestions(filter, country, language) {
         const endpoint = `${this.baseUrl}/search/${country}/${language}/listings?view=thumb`;
+        const requestBody = CarmudiApiSearch.getRequestBody(filter);
 
-        return request.post(endpoint, { body: filter })
+        return request.post(endpoint, { body: requestBody })
         .then(response => {
             this.logger.info(`Successfully fetched suggestions from Carmudi Search API`);
 
@@ -47,10 +47,15 @@ class CarmudiApiSearch {
         });
     }
 
-    parseFilter() {
+    /**
+     * static generation of request body for the search API
+     * @param filter
+     * @returns {{page: {num: number, limit: number}, filters: *}}
+     */
+    static getRequestBody(filter) {
         return {
             page: { num: 1, limit: 10 },
-            filters: { 'brand.code': 'toyota' }
+            filters: filter
         };
     }
 }
