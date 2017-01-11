@@ -13,6 +13,10 @@ class FilterParser {
         this.widget = widgetObject;
     }
 
+    /**
+     * Get Search API compatible filter object from contentful widget
+     * @returns {Object}
+     */
     generateFilter() {
         const allowedKeys = [
             'widgetName', 'transmission', 'sellerType',
