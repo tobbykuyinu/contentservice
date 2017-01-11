@@ -28,7 +28,7 @@ class RecommendationService {
             this.logger.info(`Successfully fetched product suggestions for advice`);
 
             if (response.items.length < 1) {
-                this.logger.error(`Zero results found for search query: ${query}`);
+                this.logger.error(`Zero results found for search query: ${JSON.stringify(query)}`);
             }
 
             return response.items;

@@ -2,6 +2,8 @@
 
 const errors = require('./errors');
 const request = require('requestretry').defaults({ json: true, maxAttempts: 2 });
+const joi = require('joi');
+const productSchema = require('../validations/product_recommendation');
 
 class CarmudiApiSearch {
 
@@ -30,7 +32,14 @@ class CarmudiApiSearch {
         return request.post(endpoint, { body: filter })
         .then(response => {
             this.logger.info(`Successfully fetched suggestions from Carmudi Search API`);
-            return response.body;
+
+            const joiValidation = joi.validate(response.body, productSchema.apiResponseValidation);
+
+            if (joiValidation.error) {
+                throw new Error(JSON.stringify(joiValidation.error.details));
+            }
+
+            return joiValidation.value;
         })
         .catch(error => {
             this.logger.error(`Failed to query Carmudi Search API for recommendations ${error.message}`);
