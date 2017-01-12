@@ -66,8 +66,10 @@ class CarmudiApiSearch {
         let baseUrl;
 
         if (tier1.indexOf(country.toLowerCase()) >= 0) {
+            this.logger.info(`Using tier 1 url for country: ${country}`);
             baseUrl = urls.tier1;
         } else if (tier2.indexOf(country.toLowerCase()) >= 0) {
+            this.logger.info(`Using tier 2 url for country: ${country}`);
             baseUrl = urls.tier2;
         } else {
             return Promise.reject(new Error(`No applicable URL found for country provided: ${country}`));
