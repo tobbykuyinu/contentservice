@@ -26,13 +26,17 @@ class Contentful {
      * @param type
      * @param slug
      * @param category
+     * @param country
+     * @param language
      * @returns {Promise.<TResult>}
      */
-    getEntryBySlug(type, slug, category) {
+    getEntryBySlug(type, slug, category, country, language) {
         const filter = {
             content_type: type,
             'fields.slug': slug,
             'fields.category': category,
+            'fields.country': (country) ? country.toUpperCase() : '',
+            'fields.language': (language) ? language.toLowerCase() : '',
             include: 2
         };
 

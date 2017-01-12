@@ -24,10 +24,12 @@ class AdviceController {
     getAdvice(event) {
         const slug = event.pathParameters.postSlug;
         const category = event.pathParameters.postCategory;
+        const country = event.queryStringParameters.country;
+        const language = event.queryStringParameters.language;
         let advice;
         let products;
 
-        return this.adviceService.getAdviceBySlug(slug, category)
+        return this.adviceService.getAdviceBySlug(slug, category, country, language)
         .then(response => {
             advice = response;
             return this.recommendationService.getProductsFromAdvice(advice);

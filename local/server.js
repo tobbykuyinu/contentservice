@@ -13,10 +13,14 @@ const slugHandler = (req, res, next) => {
     const type = req.params.postType;
     const slug = req.params.postSlug;
     const category = req.params.postCategory;
+    const country = req.query.country;
+    const language = req.query.language;
 
     event.pathParameters.postType = type;
     event.pathParameters.postSlug = slug;
     event.pathParameters.postCategory = category;
+    event.queryStringParameters.country = country;
+    event.queryStringParameters.language = language;
 
     handleSimulator.handle(event)
     .then(response => {
@@ -36,6 +40,7 @@ const slugHandler = (req, res, next) => {
     .then(next);
 };
 
+server.use(restify.queryParser());
 server.get('/', (req, res, next) => {
     res.send('Welcome to Carmudi Content Service'); next();
 });
