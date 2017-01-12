@@ -214,4 +214,27 @@ describe('GET /{type}/{category}/{slug}', () => {
         .then(done)
         .catch(done);
     });
+
+    it('should fail to fetch products if an invalid country is provided from contentful', (done) => {
+        contentfulMock.invalidCountryAdviceResponse(defaultEvent);
+        searchAPIMock.successResponse();
+
+        handler.handle(defaultEvent)
+        .then(response => {
+            const schema = {
+                headers: joi.object().keys({
+                    'Content-Type': joi.string().valid(validHeader).required()
+                }),
+                statusCode: joi.number().valid(httpStatus.OK).required(),
+                body: joi.object().keys({
+                    products: productSchema.arrayValidation.length(0),
+                    advice: adviceSchema.objectValidation
+                })
+            };
+
+            return joi.assert(response, schema);
+        })
+        .then(done)
+        .catch(done);
+    });
 });

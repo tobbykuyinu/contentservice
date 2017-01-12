@@ -14,7 +14,8 @@ class CarmudiApiSearch {
      * @param logger
      */
     constructor(config, logger) {
-        this.baseUrl = config.tier1.url;
+        this.tier1 = config.tier1.url;
+        this.tier2 = config.tier2.url;
         this.logger = logger;
     }
 
@@ -26,10 +27,13 @@ class CarmudiApiSearch {
      * @returns {Promise.<T>}
      */
     getSuggestions(filter, country, language) {
-        const endpoint = `${this.baseUrl}/search/${country}/${language}/listings?view=thumb`;
-        const requestBody = CarmudiApiSearch.getRequestBody(filter);
+        return this.getRequestUrl(country)
+        .then(baseUrl => {
+            const endpoint = `${baseUrl}/search/${country}/${language}/listings?view=thumb`;
+            const requestBody = CarmudiApiSearch.getRequestBody(filter);
 
-        return request.post(endpoint, { body: requestBody })
+            return request.post(endpoint, { body: requestBody });
+        })
         .then(response => {
             this.logger.info(`Successfully fetched suggestions from Carmudi Search API`);
 
@@ -42,9 +46,34 @@ class CarmudiApiSearch {
             return joiValidation.value;
         })
         .catch(error => {
-            this.logger.error(`Failed to query Carmudi Search API for recommendations ${error.message}`);
+            this.logger.error(`Failed to query Carmudi Search API for recommendations. ${error.message}`);
             throw new errors.ApiError('An error occurred while trying to communicate with the Carmudi Search API');
         });
+    }
+
+    /**
+     * BaseURL mapping for the two tiers
+     * @param country
+     * @returns {*}
+     */
+    getRequestUrl(country) {
+        const tier1 = ['vn', 'ph', 'id'];
+        const tier2 = ['mm', 'mx', 'bd', 'pk', 'lk', 'sa', 'qa'];
+        const urls = {
+            tier1: this.tier1,
+            tier2: this.tier2
+        };
+        let baseUrl;
+
+        if (tier1.indexOf(country.toLowerCase()) >= 0) {
+            baseUrl = urls.tier1;
+        } else if (tier2.indexOf(country.toLowerCase()) >= 0) {
+            baseUrl = urls.tier2;
+        } else {
+            return Promise.reject(new Error(`No applicable URL found for country provided: ${country}`));
+        }
+
+        return Promise.resolve(baseUrl);
     }
 
     /**
