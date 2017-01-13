@@ -93,6 +93,7 @@ const responseObject = {
 };
 
 module.exports = {
+    widgetObject: widgetObject,
     objectValidation: responseObject,
     arrayValidation: joi.array().required().items(responseObject)
 };

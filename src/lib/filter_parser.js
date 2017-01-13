@@ -19,7 +19,7 @@ class FilterParser {
      */
     generateFilter() {
         const allowedKeys = [
-            'widgetName', 'transmission', 'sellerType',
+            'transmission', 'sellerType',
             'category', 'condition', 'fuel', 'model', 'brand',
             'priceFrom', 'priceTo', 'yearFrom',
             'yearTo', 'mileageFrom', 'mileageTo'

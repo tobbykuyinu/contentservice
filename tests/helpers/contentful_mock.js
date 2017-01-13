@@ -17,7 +17,9 @@ const successAdviceResponse = (event) => {
     .get(`/spaces/${config.services.contentful.space_id}` +
         `/entries?content_type=${event.pathParameters.postType}&` +
         `fields.slug=${event.pathParameters.postSlug}&` +
-        `fields.category=${event.pathParameters.postCategory}&include=2`)
+        `fields.category=${event.pathParameters.postCategory}&` +
+        `fields.country=${event.queryStringParameters.country.toUpperCase()}&` +
+        `fields.language=${event.queryStringParameters.language}&include=2`)
     .reply(200, adviceMockData);
 };
 
@@ -30,7 +32,9 @@ const notFoundAdviceResponse = (event) => {
     .get(`/spaces/${config.services.contentful.space_id}` +
         `/entries?content_type=${event.pathParameters.postType}&` +
         `fields.slug=${event.pathParameters.postSlug}&` +
-        `fields.category=${event.pathParameters.postCategory}&include=2`)
+        `fields.category=${event.pathParameters.postCategory}&` +
+        `fields.country=${event.queryStringParameters.country.toUpperCase()}&` +
+        `fields.language=${event.queryStringParameters.language}&include=2`)
     .reply(200, emptyAdviceMockData);
 };
 
@@ -43,7 +47,9 @@ const errorAdviceResponse = (event) => {
     .get(`/spaces/${config.services.contentful.space_id}` +
         `/entries?content_type=${event.pathParameters.postType}&` +
         `fields.slug=${event.pathParameters.postSlug}&` +
-        `fields.category=${event.pathParameters.postCategory}&include=2`)
+        `fields.category=${event.pathParameters.postCategory}&` +
+        `fields.country=${event.queryStringParameters.country.toUpperCase()}&` +
+        `fields.language=${event.queryStringParameters.language}&include=2`)
     .replyWithError('Error on contentful');
 };
 
@@ -56,7 +62,9 @@ const invalidSchemaResponse = (event) => {
     .get(`/spaces/${config.services.contentful.space_id}` +
         `/entries?content_type=${event.pathParameters.postType}&` +
         `fields.slug=${event.pathParameters.postSlug}&` +
-        `fields.category=${event.pathParameters.postCategory}&include=2`)
+        `fields.category=${event.pathParameters.postCategory}&` +
+        `fields.country=${event.queryStringParameters.country.toUpperCase()}&` +
+        `fields.language=${event.queryStringParameters.language}&include=2`)
     .reply(200, invalidSchemaAdviceMockData);
 };
 
@@ -69,7 +77,9 @@ const invalidCountryAdviceResponse = (event) => {
     .get(`/spaces/${config.services.contentful.space_id}` +
         `/entries?content_type=${event.pathParameters.postType}&` +
         `fields.slug=${event.pathParameters.postSlug}&` +
-        `fields.category=${event.pathParameters.postCategory}&include=2`)
+        `fields.category=${event.pathParameters.postCategory}&` +
+        `fields.country=${event.queryStringParameters.country.toUpperCase()}&` +
+        `fields.language=${event.queryStringParameters.language}&include=2`)
     .reply(200, invalidCountryAdviceMockData);
 };
 
