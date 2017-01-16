@@ -84,8 +84,8 @@ class RecommendationService {
             this.logger.info(`Successfully fetched product suggestions for advice`);
 
             if (response.meta.total === 0) {
-                this.logger.info(`Query produced zero results. 
-            Non-matching result set for query: ${JSON.stringify(filter)}`);
+                this.logger.info(`Query produced zero results.` +
+                `Non-matching result set for query: ${JSON.stringify(filter)}`);
             }
 
             if (response.items.length < 1) {
