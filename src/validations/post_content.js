@@ -73,7 +73,7 @@ const responseObject = {
             )
         })
     ),
-    suggestionsWidget: joi.array().required().min(1).items(
+    suggestionsWidget: joi.array().optional().items(
         joi.object().required().keys(widgetObject)
     ),
     tags: joi.string().required(),

@@ -3,52 +3,53 @@
 const httpStatus = require('http-status');
 const error = require('../lib/errors');
 
-class AdviceController {
+class PostContentController {
 
     /**
-     * Advice Controller constructor
+     * Post Content Controller constructor
      * @constructor
-     * @param adviceService
+     * @param postContentService
      * @param recommendationService
      */
-    constructor(adviceService, recommendationService) {
-        this.adviceService = adviceService;
+    constructor(postContentService, recommendationService) {
+        this.contentService = postContentService;
         this.recommendationService = recommendationService;
     }
 
     /**
-     * getAdvice - handles the endpoint /content/advice/{postCategory}/{postSlug}
+     * getPost - handles the endpoint /content/{postType}/{postCategory}/{postSlug}
+     * @param postType
      * @param event
      * @returns {Promise}
      */
-    getAdvice(event) {
+    getPost(postType, event) {
         const slug = event.pathParameters.postSlug;
         const category = event.pathParameters.postCategory;
         const country = event.queryStringParameters.country;
         const language = event.queryStringParameters.language;
-        let advice;
-        let products;
 
-        return this.adviceService.getAdviceBySlug(slug, category, country, language)
+        let data;
+
+        return this.contentService.getPostBySlug(postType, slug, category, country, language)
         .then(response => {
-            advice = response;
+            data = response;
 
             return Promise.all([
-                this.recommendationService.getProductSuggestionsFromAdvice(advice)
-                .then(suggestions => { products = suggestions; }),
+                this.recommendationService.getProductSuggestionsFromPostContent(data)
+                .then(suggestions => { data.suggestionsWidget = suggestions; }),
 
-                this.recommendationService.getCrossLinksFromAdvice(advice)
-                .then(crossLinks => { advice.crossLinking = crossLinks; })
+                this.recommendationService.getCrossLinksFromPostContent(data)
+                .then(crossLinks => { data.crossLinking = crossLinks; })
             ]);
         })
         .then(() => {
-            return { status: httpStatus.OK, body: { advice, products } };
+            return { status: httpStatus.OK, body: data };
         })
         .catch(err => {
             let code;
 
             switch (err.constructor) {
-                case error.AdviceNotFound:
+                case error.ContentNotFound:
                     code = httpStatus.NOT_FOUND;
                     break;
                 case error.ApiError:
@@ -64,4 +65,4 @@ class AdviceController {
     }
 }
 
-module.exports = AdviceController;
+module.exports = PostContentController;

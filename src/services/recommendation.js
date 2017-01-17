@@ -2,7 +2,7 @@
 
 const joi = require('joi');
 const FilterParser = require('../lib/filter_parser');
-const adviceSchema = require('../validations/advice_post');
+const postContentSchema = require('../validations/post_content');
 
 class RecommendationService {
 
@@ -19,31 +19,31 @@ class RecommendationService {
 
     /**
      * Get products from content suggestion widget data
-     * @param advice
+     * @param postContent
      * @returns {Promise.<T>}
      */
-    getProductSuggestionsFromAdvice(advice) {
-        const country = advice.country[0].toLowerCase();
-        const language = advice.language[0].toLowerCase();
-        const filterWidget = advice.suggestionsWidget[0];
+    getProductSuggestionsFromPostContent(postContent) {
+        const country = postContent.country[0].toLowerCase();
+        const language = postContent.language[0].toLowerCase();
+        const filterWidget = postContent.suggestionsWidget[0];
 
         return this.getProductsByFilter(filterWidget, country, language);
     }
 
     /**
      * Get a uniformly formatted array of crosslinks from the mixed crosslink format from a content object
-     * @param advice
+     * @param postContent
      * @returns {Promise.<TResult>}
      */
-    getCrossLinksFromAdvice(advice) {
-        const country = advice.country[0].toLowerCase();
-        const language = advice.language[0].toLowerCase();
-        let crossLinks = advice.crossLinking;
+    getCrossLinksFromPostContent(postContent) {
+        const country = postContent.country[0].toLowerCase();
+        const language = postContent.language[0].toLowerCase();
+        let crossLinks = postContent.crossLinking;
         let promises = [];
         let response = [];
 
         crossLinks.forEach(crossLink => {
-            const joiValidation = joi.validate(crossLink, adviceSchema.widgetObject);
+            const joiValidation = joi.validate(crossLink, postContentSchema.widgetObject);
 
             if (joiValidation.error) {
                 response.push(crossLink);
@@ -81,7 +81,7 @@ class RecommendationService {
 
         return this.client.getSuggestions(filter, country, language)
         .then(response => {
-            this.logger.info(`Successfully fetched product suggestions for advice`);
+            this.logger.info(`Successfully fetched product suggestions for content`);
 
             if (response.meta.total === 0) {
                 this.logger.info(`Query produced zero results.` +
@@ -96,7 +96,7 @@ class RecommendationService {
         })
         .catch(error => {
             //failure to get products should not fail the entire request so we log and proceed
-            this.logger.error(`Failed to fetch product suggestions for advice ${error.message}`);
+            this.logger.error(`Failed to fetch product suggestions for content ${error.message}`);
             return [];
         });
     }
