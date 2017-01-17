@@ -3,7 +3,7 @@
 const contentful = require('contentful');
 const errors = require('./errors');
 const joi = require('joi');
-const adviceSchema = require('../validations/advice_post');
+const postContentSchema = require('../validations/post_content');
 
 class Contentful {
 
@@ -52,7 +52,7 @@ class Contentful {
                 responseData[0].updatedAt = response.items[0] ? response.items[0].sys.createdAt : null;
             }
 
-            const joiValidation = joi.validate(responseData, adviceSchema.arrayValidation);
+            const joiValidation = joi.validate(responseData, postContentSchema.arrayValidation);
 
             if (joiValidation.error) {
                 throw new Error(JSON.stringify(joiValidation.error.details));

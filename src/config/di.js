@@ -2,8 +2,8 @@
 
 const config = require('./config');
 const serviceLocator = require('../lib/service_locator');
-const AdviceController = require('../controllers/advice');
-const AdviceService = require('../services/advice');
+const PostContentController = require('../controllers/post_content');
+const PostContentService = require('../services/post_content');
 const RecommendationService = require('../services/recommendation');
 const Contentful = require('../lib/contentful');
 const CarmudiApiSearch = require('../lib/carmudi_api_search');
@@ -18,12 +18,12 @@ serviceLocator.register('logger', () => {
 });
 
 /**
- * Returns an instance of the advice service
+ * Returns an instance of the post content service
  */
-serviceLocator.register('adviceService', (serviceLocator) => {
+serviceLocator.register('postContentService', (serviceLocator) => {
     let logger = serviceLocator.get('logger');
     let contentful = serviceLocator.get('contentful');
-    return new AdviceService(logger, contentful);
+    return new PostContentService(logger, contentful);
 });
 
 /**
@@ -36,12 +36,12 @@ serviceLocator.register('recommendationService', (serviceLocator) => {
 });
 
 /**
- * Returns an instance of the advice controller
+ * Returns an instance of the post content controller
  */
-serviceLocator.register('adviceController', (serviceLocator) => {
-    let adviceService = serviceLocator.get('adviceService');
+serviceLocator.register('postContentController', (serviceLocator) => {
+    let postContentService = serviceLocator.get('postContentService');
     let recommendationService = serviceLocator.get('recommendationService');
-    return new AdviceController(adviceService, recommendationService);
+    return new PostContentController(postContentService, recommendationService);
 });
 
 /**

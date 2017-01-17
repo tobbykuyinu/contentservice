@@ -42,7 +42,7 @@ class RouteHandler {
             });
         }
 
-        return routes[resource][endpoint](this.event, this.context);
+        return routes[resource][endpoint](this.event);
     }
 }
 

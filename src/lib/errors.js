@@ -7,7 +7,7 @@
 const create = require('custom-error-generator');
 
 module.exports = {
-    AdviceNotFound: create('AdviceNotFound', { code: 'ADVICE_NOT_FOUND' }),
+    ContentNotFound: create('ContentNotFound', { code: 'CONTENT_NOT_FOUND' }),
 
     MethodNotImplemented: create('MethodNotImplemented', { code: 'METHOD_NOT_IMPLEMENTED' }),
 
