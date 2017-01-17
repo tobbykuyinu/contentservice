@@ -10,9 +10,9 @@ const postTypes = {
 
 let routes = {
     content: {
-        advice: (event, context) => postContentController.getPost(postTypes.advice, event),
-        insurance: (event, context) => postContentController.getPost(postTypes.insurance, event),
-        financing: (event, context) => postContentController.getPost(postTypes.financing, event)
+        advice: (event) => postContentController.getPost(postTypes.advice, event),
+        insurance: (event) => postContentController.getPost(postTypes.insurance, event),
+        financing: (event) => postContentController.getPost(postTypes.financing, event)
     }
 };
 
