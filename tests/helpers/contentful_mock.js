@@ -6,6 +6,7 @@ const CONTENTFUL_URL = 'https://cdn.contentful.com';
 const adviceMockData = require('./mock_data/advice_mock_data.json');
 const emptyAdviceMockData = require('./mock_data/empty_advice_mock_data.json');
 const invalidSchemaAdviceMockData = require('./mock_data/invalid_advice_mock_data.json');
+const invalidCountryAdviceMockData = require('./mock_data/invalid_country_advice_mock_data.json');
 
 /**
  * Mocks the call to contentful advice fetch for success
@@ -16,7 +17,9 @@ const successAdviceResponse = (event) => {
     .get(`/spaces/${config.services.contentful.space_id}` +
         `/entries?content_type=${event.pathParameters.postType}&` +
         `fields.slug=${event.pathParameters.postSlug}&` +
-        `fields.category=${event.pathParameters.postCategory}&include=2`)
+        `fields.category=${event.pathParameters.postCategory}&` +
+        `fields.country=${event.queryStringParameters.country.toUpperCase()}&` +
+        `fields.language=${event.queryStringParameters.language}&include=2`)
     .reply(200, adviceMockData);
 };
 
@@ -29,7 +32,9 @@ const notFoundAdviceResponse = (event) => {
     .get(`/spaces/${config.services.contentful.space_id}` +
         `/entries?content_type=${event.pathParameters.postType}&` +
         `fields.slug=${event.pathParameters.postSlug}&` +
-        `fields.category=${event.pathParameters.postCategory}&include=2`)
+        `fields.category=${event.pathParameters.postCategory}&` +
+        `fields.country=${event.queryStringParameters.country.toUpperCase()}&` +
+        `fields.language=${event.queryStringParameters.language}&include=2`)
     .reply(200, emptyAdviceMockData);
 };
 
@@ -42,7 +47,9 @@ const errorAdviceResponse = (event) => {
     .get(`/spaces/${config.services.contentful.space_id}` +
         `/entries?content_type=${event.pathParameters.postType}&` +
         `fields.slug=${event.pathParameters.postSlug}&` +
-        `fields.category=${event.pathParameters.postCategory}&include=2`)
+        `fields.category=${event.pathParameters.postCategory}&` +
+        `fields.country=${event.queryStringParameters.country.toUpperCase()}&` +
+        `fields.language=${event.queryStringParameters.language}&include=2`)
     .replyWithError('Error on contentful');
 };
 
@@ -55,13 +62,31 @@ const invalidSchemaResponse = (event) => {
     .get(`/spaces/${config.services.contentful.space_id}` +
         `/entries?content_type=${event.pathParameters.postType}&` +
         `fields.slug=${event.pathParameters.postSlug}&` +
-        `fields.category=${event.pathParameters.postCategory}&include=2`)
+        `fields.category=${event.pathParameters.postCategory}&` +
+        `fields.country=${event.queryStringParameters.country.toUpperCase()}&` +
+        `fields.language=${event.queryStringParameters.language}&include=2`)
     .reply(200, invalidSchemaAdviceMockData);
+};
+
+/**
+ * Mocks the call to contentful for an invalid country in response
+ * @param event
+ */
+const invalidCountryAdviceResponse = (event) => {
+    nock(CONTENTFUL_URL)
+    .get(`/spaces/${config.services.contentful.space_id}` +
+        `/entries?content_type=${event.pathParameters.postType}&` +
+        `fields.slug=${event.pathParameters.postSlug}&` +
+        `fields.category=${event.pathParameters.postCategory}&` +
+        `fields.country=${event.queryStringParameters.country.toUpperCase()}&` +
+        `fields.language=${event.queryStringParameters.language}&include=2`)
+    .reply(200, invalidCountryAdviceMockData);
 };
 
 module.exports = {
     successAdviceResponse,
     errorAdviceResponse,
     notFoundAdviceResponse,
-    invalidSchemaResponse
+    invalidSchemaResponse,
+    invalidCountryAdviceResponse
 };

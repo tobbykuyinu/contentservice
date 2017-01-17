@@ -17,23 +17,31 @@ class AdviceController {
     }
 
     /**
-     * getAdvice - handles the endpoint /content/advice/{postSlug}
+     * getAdvice - handles the endpoint /content/advice/{postCategory}/{postSlug}
      * @param event
      * @returns {Promise}
      */
     getAdvice(event) {
         const slug = event.pathParameters.postSlug;
         const category = event.pathParameters.postCategory;
+        const country = event.queryStringParameters.country;
+        const language = event.queryStringParameters.language;
         let advice;
         let products;
 
-        return this.adviceService.getAdviceBySlug(slug, category)
+        return this.adviceService.getAdviceBySlug(slug, category, country, language)
         .then(response => {
             advice = response;
-            return this.recommendationService.getProductsFromAdvice(advice);
+
+            return Promise.all([
+                this.recommendationService.getProductSuggestionsFromAdvice(advice)
+                .then(suggestions => { products = suggestions; }),
+
+                this.recommendationService.getCrossLinksFromAdvice(advice)
+                .then(crossLinks => { advice.crossLinking = crossLinks; })
+            ]);
         })
-        .then(response => {
-            products = response;
+        .then(() => {
             return { status: httpStatus.OK, body: { advice, products } };
         })
         .catch(err => {

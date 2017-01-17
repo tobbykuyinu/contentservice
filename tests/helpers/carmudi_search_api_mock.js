@@ -13,6 +13,7 @@ const invalidSchemaSearchApiMockData = require('./mock_data/invalid_search_api_m
 const successResponse = () => {
     nock(SEARCH_API_URL)
     .post(/\/1\/search/)
+    .twice()
     .reply(200, searchApiMockData);
 };
 
@@ -22,6 +23,7 @@ const successResponse = () => {
 const notFoundResponse = () => {
     nock(SEARCH_API_URL)
     .post(/\/1\/search/)
+    .twice()
     .reply(200, emptySearchApiMockData);
 };
 
@@ -31,6 +33,7 @@ const notFoundResponse = () => {
 const errorResponse = () => {
     nock(SEARCH_API_URL)
     .post(/\/1\/search/)
+    .twice()
     .replyWithError('Error on Search API');
 };
 
@@ -40,6 +43,7 @@ const errorResponse = () => {
 const invalidSchemaResponse = () => {
     nock(SEARCH_API_URL)
     .post(/\/1\/search/)
+    .twice()
     .reply(200, invalidSchemaSearchApiMockData);
 };
 

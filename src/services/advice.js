@@ -20,9 +20,11 @@ class AdviceService {
      * Get advice by slug - returns advice data for a given slug
      * @param slug
      * @param category
+     * @param country
+     * @param language
      */
-    getAdviceBySlug(slug, category) {
-        return this.contentProvider.getEntryBySlug(CONTENT_TYPE, slug, category)
+    getAdviceBySlug(slug, category, country, language) {
+        return this.contentProvider.getEntryBySlug(CONTENT_TYPE, slug, category, country, language)
         .then(data => {
             this.logger.info('Successfully fetched data for slug');
 
