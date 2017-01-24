@@ -17,7 +17,7 @@ env:
     - API_SEARCH_URL_TIER_1=http://localhost:8000/1
     - API_SEARCH_URL_TIER_2=http://localhost:8000/1
     - GOOGLE_API_CLIENT_EMAIL=client-email-goes-in-here
-    - GOOGLE_API_PRIVATE_KEY=key-goes-in-here
+    - GOOGLE_API_PRIVATE_KEY='-----BEGIN PRIVATE KEY-----\nabcd8=\n-----END PRIVATE KEY-----\n'
     - VN_ANALYTICS_ID=ga:1234
     - PH_ANALYTICS_ID=ga:1234
     - ID_ANALYTICS_ID=ga:1234
