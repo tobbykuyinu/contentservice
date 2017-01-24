@@ -33,7 +33,6 @@ class GoogleAnalytics {
      * @returns {Promise}
      */
     getTopPagesByPath(path, country) {
-        path = '/cars/toyota/camry/';
         const propertyId = this.getCountryPropertyId(country);
         const _this = this;
 
