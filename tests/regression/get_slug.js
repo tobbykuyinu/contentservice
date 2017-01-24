@@ -10,10 +10,10 @@ const validHeader = 'application/json';
 const postContentSchema = require('../../src/validations/post_content');
 const productSchema = require('../../src/validations/product_recommendation');
 
-describe('GET /{type}/{category}/{slug}', () => {
+describe('GET /content/{type}/{category}/{slug}', () => {
     it('should fail to fetch a slug for an invalid route/content type', (done) => {
         let event = Object.assign({}, defaultEvent);
-        event.pathParameters = { postType: 'invalidPostType' };
+        event.pathParameters = { resource: 'content', endpoint: 'invalidPostType' };
 
         handler.handle(event)
         .then(response => {

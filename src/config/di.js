@@ -5,8 +5,10 @@ const serviceLocator = require('../lib/service_locator');
 const PostContentController = require('../controllers/post_content');
 const PostContentService = require('../services/post_content');
 const RecommendationService = require('../services/recommendation');
+const PopularPostsService = require('../services/popular_posts');
 const Contentful = require('../lib/contentful');
 const CarmudiApiSearch = require('../lib/carmudi_api_search');
+const GoogleAnalytics = require('../lib/google_analytics');
 
 /**
  * Returns an instance of the logger
@@ -36,12 +38,22 @@ serviceLocator.register('recommendationService', (serviceLocator) => {
 });
 
 /**
+ * Returns an instance of the popular posts service
+ */
+serviceLocator.register('popularPostsService', (serviceLocator) => {
+    let logger = serviceLocator.get('logger');
+    let googleAnalytics = serviceLocator.get('googleAnalytics');
+    return new PopularPostsService(logger, googleAnalytics);
+});
+
+/**
  * Returns an instance of the post content controller
  */
 serviceLocator.register('postContentController', (serviceLocator) => {
     let postContentService = serviceLocator.get('postContentService');
     let recommendationService = serviceLocator.get('recommendationService');
-    return new PostContentController(postContentService, recommendationService);
+    let popularPostsService = serviceLocator.get('popularPostsService');
+    return new PostContentController(postContentService, recommendationService, popularPostsService);
 });
 
 /**
@@ -58,6 +70,14 @@ serviceLocator.register('carmudiApiSearch', (serviceLocator) => {
 serviceLocator.register('contentful', () => {
     let logger = serviceLocator.get('logger');
     return new Contentful(config.services.contentful, logger);
+});
+
+/**
+ * Returns an instance of the google analytics helper library
+ */
+serviceLocator.register('googleAnalytics', () => {
+    let logger = serviceLocator.get('logger');
+    return new GoogleAnalytics(config.services.ga, logger);
 });
 
 module.exports = serviceLocator;

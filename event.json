@@ -8,8 +8,9 @@
     "language": "en"
   },
   "pathParameters": {
+    "resource": "content",
+    "endpoint": "advice",
     "postSlug": "this-is-a-test",
-    "postType": "advice",
     "postCategory": "Tires"
   },
   "stageVariables": null,
