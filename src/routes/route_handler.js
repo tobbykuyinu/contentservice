@@ -23,8 +23,8 @@ class RouteHandler {
      */
     handle() {
         //@todo: somehow get this from the parameters passed
-        let resource = 'content';
-        let endpoint  = this.event.pathParameters.postType;
+        let resource = this.event.pathParameters.resource;
+        let endpoint  = this.event.pathParameters.endpoint;
         return this.call(resource, endpoint);
     }
 

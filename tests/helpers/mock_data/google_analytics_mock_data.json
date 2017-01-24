@@ -1,0 +1,66 @@
+{
+  "kind":"analytics#gaData",
+  "id":"https://www.googleapis.com/analytics/v3/data/ga?ids=ga:83400134&dimensions=ga:pagePath,ga:pageTitle&metrics=ga:pageViews&sort=-ga:pageViews&filters=ga:pagePath%3D@/cars/honda/jazz/&start-date=30daysAgo&end-date=today&max-results=10",
+  "query":
+  {
+    "start-date":"30daysAgo",
+    "end-date":"today",
+    "ids":"ga:83400134",
+    "dimensions":"ga:pagePath,ga:pageTitle",
+    "metrics":["ga:pageViews"],
+    "sort":["-ga:pageViews"],
+    "filters":"ga:pagePath=@/cars/honda/jazz/",
+    "start-index":1,
+    "max-results":10
+  },
+  "itemsPerPage":10,
+  "totalResults":2024,
+  "selfLink":"https://www.googleapis.com/analytics/v3/data/ga?ids=ga:83400134&dimensions=ga:pagePath,ga:pageTitle&metrics=ga:pageViews&sort=-ga:pageViews&filters=ga:pagePath%3D@/cars/honda/jazz/&start-date=30daysAgo&end-date=today&max-results=10","nextLink":"https://www.googleapis.com/analytics/v3/data/ga?ids=ga:83400134&dimensions=ga:pagePath,ga:pageTitle&metrics=ga:pageViews&sort=-ga:pageViews&filters=ga:pagePath%3D@/cars/honda/jazz/&start-date=30daysAgo&end-date=today&start-index=11&max-results=10",
+  "profileInfo":
+  {
+    "profileId":"83400134",
+    "accountId":"48959041",
+    "webPropertyId":"UA-48959041-5",
+    "internalWebPropertyId":"80602202",
+    "profileName":"All Web Site Data ID",
+    "tableId":"ga:83400134"
+  },
+  "containsSampledData":true,
+  "sampleSize":"831583",
+  "sampleSpace":"1985537",
+  "columnHeaders":
+  [
+    {
+      "name":"ga:pagePath",
+      "columnType":"DIMENSION",
+      "dataType":"STRING"
+    },
+    {
+      "name":"ga:pageTitle",
+      "columnType":"DIMENSION",
+      "dataType":"STRING"
+    },
+    {
+      "name":"ga:pageViews",
+      "columnType":"METRIC",
+      "dataType":"INTEGER"
+    }
+  ],
+  "totalsForAllResults":
+  {
+    "ga:pageViews":"83105"
+  },
+  "rows":
+  [
+    ["/cars/honda/jazz/","Harga Mobil Honda Jazz Baru Bekas Dijual | Carmudi Indonesia","56251"],
+    ["/cars/honda/jazz/east-java/","Harga Mobil Honda Jazz Baru Bekas Dijual | Carmudi Indonesia","3123"],
+    ["/cars/honda/jazz/used/","Harga Mobil Honda Jazz Baru Bekas Dijual | Carmudi Indonesia","2106"],
+    ["/cars/honda/jazz/automatic","Harga Mobil Honda Jazz Baru Bekas Dijual | Carmudi Indonesia","1893"],
+    ["/cars/honda/jazz/jakarta/","Harga Mobil Honda Jazz Baru Bekas Dijual | Carmudi Indonesia","1798"],
+    ["/cars/honda/jazz/jakarta/used/","Harga Mobil Honda Jazz Baru Bekas Dijual | Carmudi Indonesia","948"],
+    ["/cars/honda/jazz/","(not set)","855"],
+    ["/cars/honda/jazz/year_built:2016-2016/","Harga Mobil Honda Jazz Baru Bekas Dijual | Carmudi Indonesia","511"],
+    ["/cars/honda/jazz/bandung/used/","Harga Mobil Honda Jazz Baru Bekas Dijual | Carmudi Indonesia","396"],
+    ["/cars/honda/jazz/","Honda Jazz For Sale | Honda Jazz Price Carmudi Indonesia","389"]
+  ]
+}

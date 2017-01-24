@@ -13,6 +13,11 @@ let routes = {
         advice: (event) => postContentController.getPost(postTypes.advice, event),
         insurance: (event) => postContentController.getPost(postTypes.insurance, event),
         financing: (event) => postContentController.getPost(postTypes.financing, event)
+    },
+    popular: {
+        advice: (event) => postContentController.getPopularPosts(postTypes.advice, event),
+        insurance: (event) => postContentController.getPopularPosts(postTypes.insurance, event),
+        financing: (event) => postContentController.getPopularPosts(postTypes.financing, event)
     }
 };
 
