@@ -3,9 +3,9 @@
 const restify = require('restify');
 const server = restify.createServer();
 const handleSimulator = require('../tests/helpers/handler');
-const serviceLocator = require('../src/config/di');
+const serviceLocator = require('../app/config/di');
 const logger = serviceLocator.get('logger');
-const errors = require('../src/lib/errors');
+const errors = require('../app/lib/errors');
 const httpStatusCodes = require('http-status');
 
 const doHandle = (event, req, res, next) => {

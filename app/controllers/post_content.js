@@ -20,11 +20,12 @@ class PostContentController {
 
     /**
      * getPost - handles the endpoint /content/{postType}/{postCategory}/{postSlug}
-     * @param postType
-     * @param event
+     * @param req
+     * @param res
+     * @param next
      * @returns {Promise}
      */
-    getPost(postType, event) {
+    getPost(req, res, next) {
         const slug = event.pathParameters.postSlug;
         const category = event.pathParameters.postCategory;
         const country = event.queryStringParameters.country;

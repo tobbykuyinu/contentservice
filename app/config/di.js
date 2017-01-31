@@ -9,14 +9,13 @@ const PopularPostsService = require('../services/popular_posts');
 const Contentful = require('../lib/contentful');
 const CarmudiApiSearch = require('../lib/carmudi_api_search');
 const GoogleAnalytics = require('../lib/google_analytics');
+const logger = require('../lib/logger');
 
 /**
  * Returns an instance of the logger
  */
 serviceLocator.register('logger', () => {
-    //here we use console as it is compatible with lambda.
-    // Implementation should be changed later to a custom logger functionality
-    return console;
+    return logger.create(config.logging);
 });
 
 /**

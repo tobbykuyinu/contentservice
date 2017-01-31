@@ -7,8 +7,8 @@ const contentfulMock = require('../helpers/contentful_mock');
 const searchAPIMock = require('../helpers/carmudi_search_api_mock');
 const defaultEvent = require('../../event.json');
 const validHeader = 'application/json';
-const postContentSchema = require('../../src/validations/post_content');
-const productSchema = require('../../src/validations/product_recommendation');
+const postContentSchema = require('.././validations/post_content');
+const productSchema = require('.././validations/product_recommendation');
 
 describe('GET /content/{type}/{category}/{slug}', () => {
     it('should fail to fetch a slug for an invalid route/content type', (done) => {

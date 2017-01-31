@@ -4,6 +4,14 @@ const appName = 'contentservice';
 
 const config = {
     appName: appName,
+    webserver: {
+        port: process.env.PORT || 8080
+    },
+    logging: {
+        file: process.env.LOG_PATH || '/tmp/contentservice.log',
+        level: process.env.LOG_LEVEL || 'info',
+        console: process.env.LOG_ENABLE_CONSOLE || true
+    },
     services: {
         contentful: {
             keys: {
