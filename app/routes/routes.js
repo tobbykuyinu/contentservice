@@ -13,9 +13,8 @@ module.exports.setup = function setup(server, serviceLocator) {
         name: 'get_post_by_slug',
         version: '1.0.0',
         validation: {
-            params: require('./validations/get_post_by_slug')
+            params: require('./validations/get_post_by_slug').params,
+            query: require('./validations/get_post_by_slug').query
         }
     }, (req, res, next) => postContentController.getPost(req, res, next));
 };
-
-module.exports = routes;
