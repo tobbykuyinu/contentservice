@@ -23,4 +23,4 @@ VOLUME ["/src", "/var/log/applications/contentservice"]
 EXPOSE  8082
 EXPOSE  5858
 
-CMD ["forever", "-w", "--debug=5858", "local/server.js"]
+CMD ["forever", "-w", "--debug=5858", "server.js"]

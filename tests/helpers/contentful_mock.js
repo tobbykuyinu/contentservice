@@ -10,10 +10,10 @@ const invalidCountryContentMockData = require('./mock_data/invalid_country_conte
 const reqPath = (event) => {
     return `/spaces/${config.services.contentful.space_id}` +
     `/entries?content_type=${event.pathParameters.endpoint}&` +
-    `fields.slug=${event.pathParameters.postSlug}&` +
-    `fields.category=${event.pathParameters.postCategory}&` +
-    `fields.country=${event.queryStringParameters.country.toUpperCase()}&` +
-    `fields.language=${event.queryStringParameters.language}&include=2`;
+    `fields.slug=${event.postSlug}&` +
+    `fields.category=${event.postCategory}&` +
+    `fields.country=${event.country.toUpperCase()}&` +
+    `fields.language=${event.language}&include=2`;
 };
 
 /**
