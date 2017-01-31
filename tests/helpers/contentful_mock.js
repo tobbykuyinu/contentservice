@@ -1,7 +1,7 @@
 'use strict';
 
 const nock = require('nock');
-const config = require('.././config/config');
+const config = require('../../app/config/config');
 const CONTENTFUL_URL = 'https://cdn.contentful.com';
 const contentMockData = require('./mock_data/contentful_post_mock_data.json');
 const emptyContentMockData = require('./mock_data/empty_contentful_post_mock_data.json');
