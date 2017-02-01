@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * JSON formatter.
+ * JSON Response formatter.
  * @public
  * @function formatJSend
  * @param    {Object} req  the request object
