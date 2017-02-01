@@ -34,6 +34,22 @@ describe('GET /content/{type}/{category}/{slug}', () => {
         .end(done);
     });
 
+    it('should require country query param', (done) => {
+        request.get('/v1/content/advice/Tires/this-is-a-test')
+        .send()
+        .expect('Content-type', /json/)
+        .expect(httpStatus.BAD_REQUEST)
+        .expect(res => {
+            const schema = {
+                message: joi.string().required(),
+                code: joi.string().required().valid('INVALID_PARAMS')
+            };
+
+            joi.assert(res.body, schema);
+        })
+        .end(done);
+    });
+
     it('should return a valid response when a slug is requested', (done) => {
         contentfulMock.successResponse(defaultEvent);
         searchAPIMock.successResponse();
