@@ -5,9 +5,9 @@
  **/
 
 module.exports =  function (routes) {
-    var Table = require('cli-table');
+    const Table = require('cli-table');
 
-    var table = new Table({
+    let table = new Table({
         style: {
             head: ['green'],
             compact: true
@@ -15,17 +15,17 @@ module.exports =  function (routes) {
         head: ['', 'Name', 'Path', 'Scope']
     });
 
-    // vars used in loops below
-    var row;
-    var index;
-    var path;
-    var scope;
-    var version;
-    var val;
+    // lets used in loops below
+    let row;
+    let index;
+    let path;
+    let scope;
+    let version;
+    let val;
 
     console.log('\nAPIs for this service:');
 
-    for (var key in routes) {
+    for (let key in routes) {
         if (routes.hasOwnProperty(key)) {
             val = routes[key];
 

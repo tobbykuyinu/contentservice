@@ -3,7 +3,7 @@
 /**
  * JSON formatter.
  * @public
- * @function formatJSON
+ * @function formatJSend
  * @param    {Object} req  the request object
  * @param    {Object} res  the response object
  * @param    {Object} body response body
@@ -28,7 +28,7 @@ function formatJSend(req, res, body, cb) {
         packet = body;
     }
 
-    var data = JSON.stringify(packet);
+    const data = JSON.stringify(packet);
     res.header('Content-Length', Buffer.byteLength(data));
 
     return cb(null, data);
