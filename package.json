@@ -1,11 +1,10 @@
 {
   "name": "carmudi-contentservice",
-  "main": "index.js",
+  "main": "server.js",
   "version": "0.0.0",
   "scripts": {
-    "regression": "istanbul cover _mocha -- -R spec tests/regression/*",
-    "lint": "node_modules/jscs/bin/jscs . && node_modules/jshint/bin/jshint .",
-    "local": "node local/server.js"
+    "regression": "NODE_PORT=3000 istanbul cover _mocha -- -R spec tests/regression/*",
+    "lint": "node_modules/jscs/bin/jscs . && node_modules/jshint/bin/jshint ."
   },
   "dependencies": {
     "contentful": "3.8.0",
