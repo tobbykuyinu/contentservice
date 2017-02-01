@@ -8,7 +8,7 @@ let fs = require('fs');
  * @param entry the log entry to format
  * @returns {string} the log line that will be passed to the transports
  */
-let formatter = function(entry) {
+let formatter = function (entry) {
     let date = new Date(entry.timestamp()).toISOString();
 
     let message = '';
@@ -28,7 +28,7 @@ let formatter = function(entry) {
  * Generates the timestamp used by the log entries.
  * @returns {number} the timestamp
  */
-let generateTimestamp = function() {
+let generateTimestamp = function () {
     return Date.now();
 };
 
@@ -36,7 +36,7 @@ let generateTimestamp = function() {
  * Creates transports based on config values
  * @returns {Array} the created transports
  */
-let createTransports = function(config) {
+let createTransports = function (config) {
 
     let transports = [];
 
@@ -44,7 +44,7 @@ let createTransports = function(config) {
     if (config.file) {
 
         // create the file
-        fs.open(config.file, 'w', function(err, fd) {
+        fs.open(config.file, 'w', function (err, fd) {
             if (err) {
                 return;
             }
@@ -87,7 +87,7 @@ module.exports = {
      * @param  {object} config The config used to setup the logger transports.
      * @return {logger} Returns a new instance of the winston logger.
      */
-    create: function(config) {
+    create: function (config) {
         if (!config) {
             return console;
         }

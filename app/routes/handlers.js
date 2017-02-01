@@ -16,7 +16,7 @@ module.exports.setup = function setup(server) {
 
     server.on('NotFound', (req, res) => {
         res.send(
-            httpStatusCodes.NOT_FOUND,
+            httpStatusCodes.NOT_IMPLEMENTED,
             new errors.MethodNotImplemented('Method not Implemented')
         );
     });

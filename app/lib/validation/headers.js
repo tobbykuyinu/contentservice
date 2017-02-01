@@ -4,7 +4,7 @@ const errors = require('../errors');
 const httpStatus = require('http-status');
 const InvalidContentTypeError = errors.InvalidParams;
 
-module.exports = function(logger) {
+module.exports = function (logger) {
 
     return function headerValidationMiddleware(req, res, next) {
 

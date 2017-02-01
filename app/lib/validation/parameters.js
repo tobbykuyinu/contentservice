@@ -13,7 +13,7 @@ const InvalidParamError = errors.InvalidParams;
  *
  * @return {paramValidationMiddleware}
  */
-module.exports = function(joi, logger, validationOptions) {
+module.exports = function (joi, logger, validationOptions) {
 
     return function paramValidationMiddleware(req, res, next) {
 

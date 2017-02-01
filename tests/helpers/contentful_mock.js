@@ -9,7 +9,7 @@ const invalidSchemaContentMockData = require('./mock_data/invalid_contentful_pos
 const invalidCountryContentMockData = require('./mock_data/invalid_country_contentful_post_mock_data.json');
 const reqPath = (event) => {
     return `/spaces/${config.services.contentful.space_id}` +
-    `/entries?content_type=${event.pathParameters.endpoint}&` +
+    `/entries?content_type=${event.postType}&` +
     `fields.slug=${event.postSlug}&` +
     `fields.category=${event.postCategory}&` +
     `fields.country=${event.country.toUpperCase()}&` +

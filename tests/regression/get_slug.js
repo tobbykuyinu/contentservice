@@ -9,7 +9,13 @@ const searchAPIMock = require('../helpers/carmudi_search_api_mock');
 const postContentSchema = require('../../app/validations/post_content');
 const productSchema = require('../../app/validations/product_recommendation');
 const VALID_PATH = '/v1/content/advice/Tires/this-is-a-test?country=id';
-const defaultEvent = { postCategory: 'Tires', postSlug: 'this-is-a-test', country: 'id', language: 'en' };
+const defaultEvent = {
+    postType: 'advice',
+    postCategory: 'Tires',
+    postSlug: 'this-is-a-test',
+    country: 'id',
+    language: ''
+};
 
 describe('GET /content/{type}/{category}/{slug}', () => {
     it('should fail to fetch a slug for an invalid route/content type', (done) => {
@@ -23,7 +29,7 @@ describe('GET /content/{type}/{category}/{slug}', () => {
                 code: joi.string().required().valid('METHOD_NOT_IMPLEMENTED')
             };
 
-            joi.assert(res, schema);
+            joi.assert(res.body, schema);
         })
         .end(done);
     });
@@ -40,7 +46,7 @@ describe('GET /content/{type}/{category}/{slug}', () => {
             let responseValidation = postContentSchema.objectValidation;
             responseValidation.suggestionsWidget = joi.array();
 
-            joi.assert(res, responseValidation);
+            joi.assert(res.body, responseValidation);
         })
         .end(done);
     });
@@ -58,7 +64,7 @@ describe('GET /content/{type}/{category}/{slug}', () => {
                 code: joi.string().required().valid('API_ERROR')
             };
 
-            joi.assert(res, schema);
+            joi.assert(res.body, schema);
         })
         .end(done);
     });
@@ -76,7 +82,7 @@ describe('GET /content/{type}/{category}/{slug}', () => {
                 code: joi.string().required().valid('CONTENT_NOT_FOUND')
             };
 
-            joi.assert(res, schema);
+            joi.assert(res.body, schema);
         })
         .end(done);
     });
@@ -94,7 +100,7 @@ describe('GET /content/{type}/{category}/{slug}', () => {
                 code: joi.string().required().valid('API_ERROR')
             };
 
-            joi.assert(res, schema);
+            joi.assert(res.body, schema);
         })
         .end(done);
     });
@@ -111,7 +117,7 @@ describe('GET /content/{type}/{category}/{slug}', () => {
             let responseValidation = postContentSchema.objectValidation;
             responseValidation.suggestionsWidget = joi.array().length(0);
 
-            joi.assert(res, responseValidation);
+            joi.assert(res.body, responseValidation);
         })
         .end(done);
     });
@@ -128,7 +134,7 @@ describe('GET /content/{type}/{category}/{slug}', () => {
             let responseValidation = postContentSchema.objectValidation;
             responseValidation.suggestionsWidget = productSchema.arrayValidation;
 
-            joi.assert(res, responseValidation);
+            joi.assert(res.body, responseValidation);
         })
         .end(done);
     });
@@ -145,7 +151,7 @@ describe('GET /content/{type}/{category}/{slug}', () => {
             let responseValidation = postContentSchema.objectValidation;
             responseValidation.suggestionsWidget = productSchema.arrayValidation.min(1);
 
-            joi.assert(res, responseValidation);
+            joi.assert(res.body, responseValidation);
         })
         .end(done);
     });
@@ -162,7 +168,7 @@ describe('GET /content/{type}/{category}/{slug}', () => {
             let responseValidation = postContentSchema.objectValidation;
             responseValidation.suggestionsWidget = productSchema.arrayValidation.length(0);
 
-            joi.assert(res, responseValidation);
+            joi.assert(res.body, responseValidation);
         })
         .end(done);
     });
@@ -179,7 +185,7 @@ describe('GET /content/{type}/{category}/{slug}', () => {
             let responseValidation = postContentSchema.objectValidation;
             responseValidation.suggestionsWidget = productSchema.arrayValidation.length(0);
 
-            joi.assert(res, responseValidation);
+            joi.assert(res.body, responseValidation);
         })
         .end(done);
     });

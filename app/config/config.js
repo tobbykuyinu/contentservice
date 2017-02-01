@@ -5,7 +5,7 @@ const appName = 'contentservice';
 const config = {
     appName: appName,
     webserver: {
-        port: process.env.PORT || 8080
+        port: process.env.NODE_PORT || 8080
     },
     logging: {
         file: process.env.LOG_PATH || '/tmp/contentservice.log',

@@ -7,9 +7,10 @@
  * @param    {Object} req  the request object
  * @param    {Object} res  the response object
  * @param    {Object} body response body
+ * @param    {Function} cb callback
  * @returns  {String}
  */
-function formatJSend(req, res, body) {
+function formatJSend(req, res, body, cb) {
     let packet = {};
 
     if (body instanceof Error) {
@@ -30,7 +31,7 @@ function formatJSend(req, res, body) {
     var data = JSON.stringify(packet);
     res.header('Content-Length', Buffer.byteLength(data));
 
-    return data;
+    return cb(null, data);
 }
 
 module.exports = formatJSend;

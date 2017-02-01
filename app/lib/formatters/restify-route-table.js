@@ -4,7 +4,7 @@
  @description Prints out a table of Restify routes
  **/
 
-module.exports =  function(routes) {
+module.exports =  function (routes) {
     var Table = require('cli-table');
 
     var table = new Table({
