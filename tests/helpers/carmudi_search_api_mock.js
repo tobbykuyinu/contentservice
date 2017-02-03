@@ -1,7 +1,7 @@
 'use strict';
 
 const nock = require('nock');
-const config = require('../../src/config/config');
+const config = require('../../app/config/config');
 const SEARCH_API_URL = config.services.carmudi_api_search.tier1.url;
 const searchApiMockData = require('./mock_data/search_api_mock_data.json');
 const emptySearchApiMockData = require('./mock_data/empty_search_api_mock_data.json');

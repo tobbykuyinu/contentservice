@@ -1,7 +1,7 @@
 'use strict';
 
 const nock = require('nock');
-const config = require('../../src/config/config');
+const config = require('../../app/config/config');
 const CONTENTFUL_URL = 'https://cdn.contentful.com';
 const contentMockData = require('./mock_data/contentful_post_mock_data.json');
 const emptyContentMockData = require('./mock_data/empty_contentful_post_mock_data.json');
@@ -9,11 +9,11 @@ const invalidSchemaContentMockData = require('./mock_data/invalid_contentful_pos
 const invalidCountryContentMockData = require('./mock_data/invalid_country_contentful_post_mock_data.json');
 const reqPath = (event) => {
     return `/spaces/${config.services.contentful.space_id}` +
-    `/entries?content_type=${event.pathParameters.endpoint}&` +
-    `fields.slug=${event.pathParameters.postSlug}&` +
-    `fields.category=${event.pathParameters.postCategory}&` +
-    `fields.country=${event.queryStringParameters.country.toUpperCase()}&` +
-    `fields.language=${event.queryStringParameters.language}&include=2`;
+    `/entries?content_type=${event.postType}&` +
+    `fields.slug=${event.postSlug}&` +
+    `fields.category=${event.postCategory}&` +
+    `fields.country=${event.country.toUpperCase()}&` +
+    `fields.language=${event.language}&include=2`;
 };
 
 /**

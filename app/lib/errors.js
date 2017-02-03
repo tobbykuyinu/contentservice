@@ -11,6 +11,8 @@ module.exports = {
 
     MethodNotImplemented: create('MethodNotImplemented', { code: 'METHOD_NOT_IMPLEMENTED' }),
 
+    InvalidVersion: create('InvalidVersion', { code: 'INVALID_VERSION' }),
+
     InternalServerError: create('InternalServerError', { code: 'INTERNAL_SERVER_ERROR' }),
 
     InvalidParams: create('InvalidParams', { code: 'INVALID_PARAMS' }),

@@ -1,12 +1,12 @@
 web_service:
-  build: .
+  image: contentservice:latest
   container_name: contentservice
 
   ports:
     - 8082:8082
 
   env_file:
-    - ./app.local.env
+    - ./app.env
 
   volumes:
     - .:/src

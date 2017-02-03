@@ -20,19 +20,21 @@ class PostContentController {
 
     /**
      * getPost - handles the endpoint /content/{postType}/{postCategory}/{postSlug}
-     * @param postType
-     * @param event
+     * @param req
+     * @param res
+     * @param next
      * @returns {Promise}
      */
-    getPost(postType, event) {
-        const slug = event.pathParameters.postSlug;
-        const category = event.pathParameters.postCategory;
-        const country = event.queryStringParameters.country;
-        const language = event.queryStringParameters.language;
+    getPost(req, res, next) {
+        const postType = req.params.postType;
+        const category = req.params.postCategory;
+        const slug = req.params.postSlug;
+        const country = req.query.country;
+        const language = req.query.language;
 
         let data;
 
-        return this.contentService.getPostBySlug(postType, slug, category, country, language)
+        this.contentService.getPostBySlug(postType, slug, category, country, language)
         .then(response => {
             data = response;
 
@@ -45,7 +47,7 @@ class PostContentController {
             ]);
         })
         .then(() => {
-            return { status: httpStatus.OK, body: data };
+            res.send(httpStatus.OK, data);
         })
         .catch(err => {
             let code;
@@ -62,23 +64,27 @@ class PostContentController {
                     err = new error.InternalServerError('Internal Server Error');
             }
 
-            return { status: code, error: err };
+            res.send(code, err);
         });
+
+        return next();
     }
 
     /**
      * getPopularPosts - handles the endpoint: /popular/{postType}/{postCategory}
-     * @param postType
-     * @param event
+     * @param req
+     * @param res
+     * @param next
      * @returns {Promise}
      */
-    getPopularPosts(postType, event) {
-        const postCategory = event.pathParameters.postCategory;
-        const country = event.queryStringParameters.country;
+    getPopularPosts(req, res, next) {
+        const postType = req.params.postType;
+        const postCategory = req.params.postCategory;
+        const country = req.query.country;
 
-        return this.popularPostService.getPopularPosts(country, postType, postCategory)
+        this.popularPostService.getPopularPosts(country, postType, postCategory)
         .then(popularPosts => {
-            return { status: httpStatus.OK, body: popularPosts };
+            res.send(httpStatus.OK, popularPosts);
         })
         .catch(err => {
             let code;
@@ -95,8 +101,10 @@ class PostContentController {
                     err = new error.InternalServerError('Internal Server Error');
             }
 
-            return { status: code, error: err };
+            res.send(code, err);
         });
+
+        return next();
     }
 }
 

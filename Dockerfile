@@ -14,13 +14,12 @@ COPY . /src
 RUN npm install
 
 # For development environment, we want to use forever to keep the code running
-RUN npm install -g forever@0.14.2
+RUN npm install pm2 -g
 
 # Map a volume for the log files and add a volume to override the code
 VOLUME ["/src", "/var/log/applications/contentservice"]
 
 # Expose web service and nodejs debug port
 EXPOSE  8082
-EXPOSE  5858
 
-CMD ["forever", "-w", "--debug=5858", "local/server.js"]
+CMD [ "pm2-docker", "pm2.json" ]
