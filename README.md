@@ -1,6 +1,6 @@
-# Carmudi Content Service
+# Content Service
 
-The guide herein describes how to get the Carmudi content service up and running
+The guide herein describes how to get the Content service up and running
 
 ### Invoking locally
 
